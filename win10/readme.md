@@ -13,6 +13,29 @@ mkdir /mnt/e
 sudo mount -t drvfs e: /mnt/e
 ```
 
+### Windows 10 AutoHotKey Script
+```zsh
+cp win10/caps.ahk /mnt/c/users/dennis/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/caps.ahk
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Cygwin Setup:
 
 ```zsh

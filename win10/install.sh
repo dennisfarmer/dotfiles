@@ -8,6 +8,7 @@ wget https://raw.githubusercontent.com/dennisfarmer/scripts/master/copyconfig/co
 chmod u+x ~/.local/bin/copyconfig
 mkdir -p ~/.config
 export XDG_CONFIG_HOME="$HOME/.config"
+
 bash ~/.local/bin/copyconfig --config ~/github/dotfiles/win10/copyconfig_win10.json --dotfiles ~/github/dotfiles --script 
 
 mkdir -p ~/.vim/backup

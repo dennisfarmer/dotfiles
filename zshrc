@@ -44,11 +44,16 @@ alias grep="grep --color=auto"
 alias mkdir='mkdir -p'
 alias cl='clear'
 alias 'cd.'='cd ..'
-alias 'cd..'='cd ../../'
+alias 'cd..'='cd ...'
+alias 'cd...'='cd ....'
+alias 'cd....'='cd .....'
 alias cs='f(){ cd "$1" && clear; if [ -z "$1" ]; then { cd; } else { ls; } fi; unset -f f; }; f'
 alias 'cs.'='cs .'
 alias wget='wget --no-hsts'
 alias python='python3'
+#alias pip='python -m pip'
+alias jpn="jupyter lab --no-browser"
+alias saml="source activate machine_learning"
 
 # Scripting
 # perl -MCPAN -e shell

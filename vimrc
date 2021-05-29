@@ -51,10 +51,12 @@ set undodir=~/.vim/undo//
 set history=1000
 set autoread
 set mouse=a
+" map <ScrollWheelUp> <C-Y>
+" map <ScrollWheelDown> <C-E>
 set scrolloff=16
 set cursorline
-" set wrap linebreak
-set nowrap
+set wrap linebreak
+" set nowrap
 " set wrap! to toggle
 " set nofoldenable "disable folding, normal mode zi to disable
 set background=dark
