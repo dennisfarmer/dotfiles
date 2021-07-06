@@ -2,7 +2,7 @@
 "zshrc": "$XDG_CONFIG_HOME/zsh/.zshrc",
 "zshenv": "$HOME/.zshenv",
 "vimrc": "$HOME/.vim/vimrc",
-"tmuxrc": "$XDG_CONFIG_HOME/tmux/tmuxrc",
+"tmuxrc": "$XDG_CONFIG_HOME/tmux/tmux.conf",
 "dircolors": "$HOME/.dircolors",
 "gitconfig": "$HOME/.gitconfig"
 }

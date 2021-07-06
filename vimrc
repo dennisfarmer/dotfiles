@@ -113,11 +113,13 @@ set expandtab
 " -----------------------------------------------
 "  Splits
 " sp / vsp [FILENAME]
+"   Ctrl+w v to create split to the right (horizontal)
+"   Ctrl+w s to create split on the bottom (vertical)
 set splitbelow splitright
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
-map <C-l> <C-w>
+map <C-l> <C-w>l
 
 " -----------------------------------------------
 " Clipboard
@@ -140,8 +142,9 @@ endif
 " ENTER GOYO
 function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+    silent !tmux set -g status off
+    silent !tmux resize-pane -Z
+    "silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
   endif
   set noshowmode
   set noshowcmd
@@ -156,12 +159,14 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 " EXIT GOYO
 function! s:goyo_leave()
   if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+    silent !tmux set -g status on
+    silent !tmux resize-pane -Z
+    "silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
   endif
   set showmode
   set showcmd
   set scrolloff=16
+  hi Normal guibg=NONE ctermbg=NONE
   if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
 	  if b:quitting_bang
 		  qa!
