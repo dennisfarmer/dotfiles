@@ -19,6 +19,10 @@ cp win10/caps.ahk /mnt/c/users/dennis/AppData/Roaming/Microsoft/Windows/Start\ M
 ```
 
 
+### Windows Terminal Config
+```zsh
+cp /mnt/c/Users/denni/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json ./
+```
 
 
 

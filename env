@@ -9,6 +9,9 @@ export CHN111="/run/media/dennisfarmer/Samsung-USB/coursework/chinese"
 export MUS140="/run/media/dennisfarmer/Samsung-USB/coursework/music_theory"
 export CPS271="/run/media/dennisfarmer/Samsung-USB/coursework/c++"
 
+# Programming Paths
+export RPROFILE="/usr/lib/R/library/base/R/Rprofile"
+
 
 # Programs
 export EDITOR="gvim -v"
