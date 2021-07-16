@@ -4,7 +4,7 @@
 
 ### X1 Carbon 3rd Gen (1440p):
 
-![x1c3_preview_01](./images/x1c3_preview_01.png)
+![x1c3_preview_01](./config/images/x1c3_preview_01.png)
 
 
 <br>
@@ -115,7 +115,7 @@
 
 - **Enable Beefy Miracle Boot Theme**
     
-    ![ ](images/plymouth-hotdog.png)
+    ![ ](./config/images/plymouth-hotdog.png)
 
 
     ```

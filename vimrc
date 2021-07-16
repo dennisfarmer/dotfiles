@@ -60,14 +60,13 @@ set wrap linebreak
 " set wrap! to toggle
 " set nofoldenable "disable folding, normal mode zi to disable
 set background=dark
-"colorscheme gruvbox
 "let g:material_theme_style = 'palenight'
 "let g:material_terminal_italics = 1
 "colorscheme material
 "let g:solarized_termtrans = 1
 "let g:solarized_termcolors=256
 "colorscheme solarized
-colorscheme gruvbox
+silent! colorscheme gruvbox
 
 " -----------------------------------------------
 "  remove background (allow transparency)

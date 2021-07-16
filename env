@@ -1,13 +1,7 @@
 #!/bin/sh
 
 export XDG_CONFIG_HOME="$HOME/.config"
-
-# Coursework
-export MTH192="/run/media/dennisfarmer/Samsung-USB/coursework/calculus"
-export MTH197="/run/media/dennisfarmer/Samsung-USB/coursework/linear_algebra"
-export CHN111="/run/media/dennisfarmer/Samsung-USB/coursework/chinese"
-export MUS140="/run/media/dennisfarmer/Samsung-USB/coursework/music_theory"
-export CPS271="/run/media/dennisfarmer/Samsung-USB/coursework/c++"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Programming Paths
 export RPROFILE="/usr/lib/R/library/base/R/Rprofile"
@@ -41,3 +35,11 @@ export SXRC="$SXHKDRC"
 export PGSYSCONFDIR="$HOME/anaconda3/etc/postgres"
 export PSQLRC="$PGSYSCONFDIR/psqlrc"
 #export $CONDARC="$HOME/.condarc"
+
+# Coursework
+export MTH192="/run/media/dennisfarmer/Samsung-USB/coursework/calculus"
+export MTH197="/run/media/dennisfarmer/Samsung-USB/coursework/linear_algebra"
+export CHN111="/run/media/dennisfarmer/Samsung-USB/coursework/chinese"
+export MUS140="/run/media/dennisfarmer/Samsung-USB/coursework/music_theory"
+export CPS271="/run/media/dennisfarmer/Samsung-USB/coursework/c++"
+
