@@ -40,6 +40,16 @@
 
 # Install Guides
 
+- **Install R (Debian)**
+
+    ```zsh
+    sudo echo "deb [trusted=yes] http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /etc/apt/sources.list
+    sudo apt update
+    sudo apt install --fix-missing -y -t buster-cran40 r-base
+    R --version
+    ```
+
+
 - **Install Anaconda**
  
   Go to `https://www.anaconda.com/products/individual#linux`
