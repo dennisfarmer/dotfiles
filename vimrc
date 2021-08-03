@@ -60,12 +60,15 @@ set wrap linebreak
 " set wrap! to toggle
 " set nofoldenable "disable folding, normal mode zi to disable
 set background=dark
+"colorscheme gruvbox
 "let g:material_theme_style = 'palenight'
 "let g:material_terminal_italics = 1
 "colorscheme material
 "let g:solarized_termtrans = 1
 "let g:solarized_termcolors=256
+
 "colorscheme solarized
+"colorscheme gruvbox
 silent! colorscheme gruvbox
 
 " -----------------------------------------------
@@ -108,6 +111,24 @@ set expandtab
 " color column
 " set colorcolumn=80
 " highlight ColorColumn ctermbg=darkgray
+" highlight ColorColumn ctermbg=darkgray
+
+" -----------------------------------------------
+"  Cursor
+" SI = Insert Mode
+" SR = Replace Mode
+" EI = Normal Mode
+
+" 1 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+" 5 -> blinking vertical bar
+" 6 -> solid vertical bar
+
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 
 " -----------------------------------------------
 "  Splits
