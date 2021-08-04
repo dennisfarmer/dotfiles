@@ -42,7 +42,7 @@ filetype plugin indent on
 syntax enable
 set encoding=utf-8
 set number
-set relativenumber
+"set relativenumber
 set showmode
 set noswapfile
 set backupdir=~/.vim/backup//
@@ -115,6 +115,7 @@ set expandtab
 
 " -----------------------------------------------
 "  Cursor
+
 " SI = Insert Mode
 " SR = Replace Mode
 " EI = Normal Mode
@@ -132,6 +133,7 @@ let &t_EI = "\<Esc>[2 q"
 
 " -----------------------------------------------
 "  Splits
+
 " sp / vsp [FILENAME]
 "   Ctrl+w v to create split to the right (horizontal)
 "   Ctrl+w s to create split on the bottom (vertical)
@@ -141,6 +143,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" -----------------------------------------------
+"  NERDTree and Term open
+
+nmap <F6> :NERDTreeToggle<CR>
+map <F2> :belowright terminal<CR>
 " -----------------------------------------------
 " Clipboard
 
@@ -220,6 +227,7 @@ let g:goyo_width = 106
 
 let g:tex_flavor='latex'
 " let g:vimtex_view_method='okular'
+let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let conceallevel=1
 let g:tex_conceal='abdmg'

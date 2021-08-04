@@ -1,0 +1,20 @@
+thunar - file manager
+konsole - terminal
+
+super+shift+enter open terminal
+super+shift+q exit dwm?
+xmodmap ~/.config/.Xmodmap
+xset r rate 200 25
+nmtui for connecting to wifi
+
+
+
+
+lightdm is the desktop changer / manager
+wpa_supplicant seems to be the network manager
+upower -i /org/freedesktop/UPower/devices/battery_BAT0
+upower -e
+upower -i `upower -e | grep "BAT"`
+
+upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
+mpv --vo=tct
