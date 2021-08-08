@@ -1,0 +1,49 @@
+thunar - file manager
+konsole - terminal
+
+super+shift+enter open terminal
+super+shift+q exit dwm?
+xmodmap ~/.config/.Xmodmap
+xset r rate 200 25
+nmtui for connecting to wifi
+
+
+lightdm is the desktop changer / manager
+wpa_supplicant seems to be the network manager
+upower -i /org/freedesktop/UPower/devices/battery_BAT0
+upower -e
+upower -i `upower -e | grep "BAT"`
+
+upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
+mpv --vo=tct
+
+
+
+alias lsa to ls -a
+figure out why caps lock key lags
+
+cool lukesmith stuff:
+cacafire
+cacaview
+cacaplay
+
+
+see .config/shell/aliasrc and profile for setting xinitrc directory upon boot
+startx is an alias for startx /home/lukesmith/.config/x11/xinitrc
+
+~/.xprofile and ~/.zprofile are sym links to ~/.config/x11/xprofile and ~/.config/shell/profile respectively
+
+
+
+note: fix xbacklight for dwmblocks battery module
+~/.local/bin/statusbar
+
+git config --global user.emal "email"
+git config --global user.name "name"
+
+change hostname to umich since github can autodetect email based on hostname and user name (lukesmith@michigan.(none) )
+
+
+networking:
+
+nmtui

@@ -4,6 +4,8 @@ set viminfo+=n~/.vim/viminfo
 
 " -----------------------------------------------
 " Plugins
+" look into using junegunn/vim-plug instead
+" of vundle
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -16,13 +18,16 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'preservim/nerdcommenter'
+Plugin 'tpope/vim-commentary'
 " Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'ap/vim-css-color'
 
 " Writing
 Plugin 'junegunn/goyo.vim'
 Plugin 'lervag/vimtex'
 
+Plugin 'vimwiki/vimwiki'
 " Vim-airline
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
@@ -36,13 +41,15 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 filetype plugin indent on
 
+" Copy parts of lukesmit vimrc (init.vim)
+" Note: https://stackoverflow.com/questions/35390415/cursor-jump-in-vim-after-save
+
 " -----------------------------------------------
 " Visual
 
 syntax enable
 set encoding=utf-8
-set number
-"set relativenumber
+set number relativenumber
 set showmode
 set noswapfile
 set backupdir=~/.vim/backup//
@@ -87,8 +94,10 @@ set t_Co=256
 " Search
 
 set ignorecase
-set hlsearch
-nnoremap <CR> :noh<CR><CR>
+set nohlsearch
+"set hlsearch
+"nnoremap <CR> :noh<CR><CR>
+
 let mapleader="\<Space>"
 set lazyredraw
 
@@ -148,10 +157,11 @@ map <C-l> <C-w>l
 
 nmap <F6> :NERDTreeToggle<CR>
 map <F2> :belowright terminal<CR>
+
 " -----------------------------------------------
 " Clipboard
 
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 " Copy and paste to/from system register
 vnoremap <C-c> "+y
@@ -160,7 +170,7 @@ map <C-v> "+P
 
 " Keep clipboard on exit
 if executable("xclip")
-	autocmd VimLeave * call system("xclip -selection clipboard -i", getreg('+')) 
+	autocmd VimLeave * call system("xclip -selection clipboard -i", getreg('+'))
 endif
 
 " -----------------------------------------------
@@ -179,7 +189,7 @@ function! s:goyo_enter()
   let b:quitting = 0
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
-  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q! 
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
@@ -200,7 +210,7 @@ function! s:goyo_leave()
 	  else
 		  qa
 	  endif
-  endif 
+  endif
 endfunction
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
@@ -211,7 +221,7 @@ onoremap <silent> j j
 onoremap <silent> k k
 
 " Toggle Goyo
-" autocmd FileType markdown,text,latex,plaintex 
+" autocmd FileType markdown,text,latex,plaintex
 nnoremap <buffer> <Leader>g :Goyo<CR>
 
 "<bar>set cursorline!
@@ -236,14 +246,14 @@ let g:tex_conceal='abdmg'
 " -----------------------------------------------
 " Bash
 
-autocmd FileType bash,sh nnoremap <buffer> <leader>l :w <bar> !sh % 
+autocmd FileType bash,sh nnoremap <buffer> <leader>l :w <bar> !sh %
 autocmd FileType bash,sh nnoremap <buffer> <leader>p :w <bar> !sh % <CR>
 
 " -----------------------------------------------
 " Python
 
 " Run current file (<leader> + L to add args before execution)
-autocmd FileType python,py nnoremap <buffer> <leader>l :w <bar> !python % 
+autocmd FileType python,py nnoremap <buffer> <leader>l :w <bar> !python %
 autocmd FileType python,py nnoremap <buffer> <leader>p :w <bar> !python % <CR>
 
 " Kite Autocomplete status line
@@ -257,6 +267,6 @@ autocmd FileType python set breakindentopt=shift:4
 " -----------------------------------------------
 " Miscellaneous bindings
 
-" command W w !sudo tee % > /dev/null 
+" command W w !sudo tee % > /dev/null
 " :W sudo saves files
 map <C-n> :NERDTreeToggle<CR>

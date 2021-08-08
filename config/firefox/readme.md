@@ -18,6 +18,7 @@ Visit `about:config` from Firefox
 Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 Set `accessibility.typeaheadfind.enablesound` to `false`
 Set `browser.tabs.insertAfterCurrent` to `true`
+Set `browser.sessionstore.resume_from_crash` to `false`
 
 ### Website Zoom Levels:
 
