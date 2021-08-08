@@ -17,7 +17,9 @@ upower -i `upower -e | grep "BAT"`
 upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
 mpv --vo=tct
 
-
+vim: help gq
+lukesmith init.vim:
+map Q gq
 
 alias lsa to ls -a
 figure out why caps lock key lags
@@ -27,13 +29,20 @@ cacafire
 cacaview
 cacaplay
 
+ln -sf source_file dest_file
 
 see .config/shell/aliasrc and profile for setting xinitrc directory upon boot
 startx is an alias for startx /home/lukesmith/.config/x11/xinitrc
 
 ~/.xprofile and ~/.zprofile are sym links to ~/.config/x11/xprofile and ~/.config/shell/profile respectively
 
+############
+set tmux color theme to same as os
+make pane divider line the same red color that the dwm border is
+############
 
+fix vim not using box cursor by default
+in shell, disable autocomplete filling out after pressing shift+A or k
 
 note: fix xbacklight for dwmblocks battery module
 ~/.local/bin/statusbar
