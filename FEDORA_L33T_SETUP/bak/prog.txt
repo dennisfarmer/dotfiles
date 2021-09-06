@@ -1,2 +1,0 @@
-fileman: thunar
-term: konsole
