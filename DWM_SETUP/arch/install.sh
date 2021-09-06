@@ -74,3 +74,5 @@ sudo systemctl enable lightdm.service
 # check out dialogue package for making a menu-based installer
 # similar to LARBS
 
+# check out li-git file manager
+
