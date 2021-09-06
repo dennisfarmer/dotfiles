@@ -1,12 +1,17 @@
 set nocompatible
 " change viminfo directory
-set viminfo+=n~/.vim/viminfo
+if !has('nvim')
+    set viminfo+=n~/.vim/viminfo
+endif
 
 " -----------------------------------------------
 " Plugins
 " look into using junegunn/vim-plug instead
 " of vundle
 
+" Install with :PluginInstall
+" Update with :PluginUpdate
+" Lookup help with "help [Nvim-R]
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -16,18 +21,19 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Programming
 Plugin 'sheerun/vim-polyglot'
-Plugin 'preservim/nerdtree'
+Plugin 'preservim/nerdtree'  " run with :NERDTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-commentary'
-" Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
+Plugin 'jalvesaq/Nvim-R'
+Plugin 'preservim/nerdcommenter'
 Plugin 'ap/vim-css-color'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-commentary'
 
 " Writing
 Plugin 'junegunn/goyo.vim'
 Plugin 'lervag/vimtex'
-
 Plugin 'vimwiki/vimwiki'
+
 " Vim-airline
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
@@ -97,7 +103,6 @@ set ignorecase
 set nohlsearch
 "set hlsearch
 "nnoremap <CR> :noh<CR><CR>
-
 let mapleader="\<Space>"
 set lazyredraw
 
@@ -233,6 +238,27 @@ let g:goyo_width = 106
 " g:goyo_margin_bottom 4
 
 " -----------------------------------------------
+" -----------------------------------------------
+"  PROGRAMMING
+
+" :help key-notation
+filetype indent on
+filetype plugin on
+"autocmd FileType python,r,rmd set breakindentopt=shift:4
+
+" -----------------------------------------------
+"  R: ~/.vim/ftplugin/r.vim
+
+" help page 6.1. Start R automatically (still reading)
+" let R_rcomment+string = '# '
+" let R_auto_start = 2
+" let R_path = '/usr/bin/R'  <- might be different
+" let R_args = ['--no-save']
+" let Rout_more_colors = 1
+" let R_nvim_wd = 1
+" let R_external_term = 1
+
+" -----------------------------------------------
 " LaTeX
 
 let g:tex_flavor='latex'
@@ -241,28 +267,6 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let conceallevel=1
 let g:tex_conceal='abdmg'
-
-
-" -----------------------------------------------
-" Bash
-
-autocmd FileType bash,sh nnoremap <buffer> <leader>l :w <bar> !sh %
-autocmd FileType bash,sh nnoremap <buffer> <leader>p :w <bar> !sh % <CR>
-
-" -----------------------------------------------
-" Python
-
-" Run current file (<leader> + L to add args before execution)
-autocmd FileType python,py nnoremap <buffer> <leader>l :w <bar> !python %
-autocmd FileType python,py nnoremap <buffer> <leader>p :w <bar> !python % <CR>
-
-" Kite Autocomplete status line
-"set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
-"set laststatus=2  " always display the status line
-
-filetype indent on
-filetype plugin on
-autocmd FileType python set breakindentopt=shift:4
 
 " -----------------------------------------------
 " Miscellaneous bindings
