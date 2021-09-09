@@ -36,7 +36,14 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt /bin/bash
 pacman -S networkmanager grub man-db
 systemctl enable NetworkManager
+
+#for uefi:
+pacman -S efibootmgr
+mkdir /boot/efi
+grub-install --target=x86_64-efi --efi-directory=/boot/efi
+#else
 grub-install /dev/sda
+
 grub-mkconfig -o /boot/grub/grub.cfg
 passwd
 vim /etc/locale.gen
