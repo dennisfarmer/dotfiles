@@ -62,6 +62,7 @@ vim /etc/locale.conf
 vim /etc/hostname
 # michigan
 ln -sf /usr/share/zoneinfo/America/Detroit /etc/localtime
+hwclock --systohc
 exit
 umount -R /mnt
 reboot
