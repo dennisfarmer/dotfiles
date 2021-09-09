@@ -28,8 +28,15 @@ cfdisk /dev/sda
 msfs.ext4 /dev/sda1
 msfs.ext4 /dev/sda2
 mount /dev/sda2 /mnt
+
+
+#for uefi:
+mkdir -p /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
+#else:
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
+
 #lsblk
 pacstrap /mnt base base-devel linux linux-firmware vim
 genfstab -U /mnt >> /mnt/etc/fstab
