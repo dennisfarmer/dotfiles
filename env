@@ -8,21 +8,24 @@ export RPROFILE="/usr/lib/R/library/base/R/Rprofile"
 
 
 # Programs
-export EDITOR="gvim -v"
-export VISUAL="gvim -v"
+#export EDITOR="gvim -v"
+#export VISUAL="gvim -v"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export PDFVIEWER="okular"
 
 # Directories
 export SCRIPTS="$HOME/github/scripts"
 
 # Config Redirection
-export VIMINIT="source $HOME/.vim/vimrc"
+#export VIMINIT="source $HOME/.vim/vimrc"
+export VIMINIT="source $XDG_CONFIG_HOME/nvim/init.vim"
 export LESSHISTFILE="$HOME/.history/.lesshst"
 export PSQL_HISTORY="$HOME/.history/.psql_history"
 
 # Paths
 export ZSHRC="$XDG_CONFIG_HOME/zsh/.zshrc"
-export VIMRC="$HOME/.vim/vimrc"
+export VIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
 export TMUXRC="$XDG_CONFIG_HOME/tmux/tmux.conf"
 export POLYBARRC="$XDG_CONFIG_HOME/polybar/config.ini"
 export BSPWMRC="$XDG_CONFIG_HOME/bspwm/bspwmrc"
