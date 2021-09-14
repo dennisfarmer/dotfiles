@@ -1,0 +1,13 @@
+{
+"zshrc": "$XDG_CONFIG_HOME/zsh/.zshrc",
+"zshenv": "$HOME/.zshenv",
+"vimrc": "$XDG_CONFIG_HOME/nvim/init.vim",
+"tmuxrc": "$XDG_CONFIG_HOME/tmux/tmux.conf",
+"dircolors": "$HOME/.dircolors",
+"gitconfig": "$HOME/.gitconfig",
+
+"config/konsole/konsolerc": "$XDG_CONFIG_HOME/konsolerc",
+"config/konsole/profile":"$HOME/.local/share/konsole/dfarmer.profile",
+"config/colorschemes/konsole/Gruvbox_dark.colorscheme":"$HOME/.local/share/konsole/Gruvbox_dark.colorscheme",
+"config/colorschemes/konsole/Gruvbox_light.colorscheme":"$HOME/.local/share/konsole/Gruvbox_light.colorscheme"
+}
