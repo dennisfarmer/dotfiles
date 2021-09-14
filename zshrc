@@ -1,6 +1,8 @@
 #TERM=screen-256color
 TERM=xterm-256color
 #export LANG=en_US.UTF-8
+export LS_COLORS=$LS_COLORS:'ow=1;34:';
+export HISTFILE=$HOME/.config/zsh/.zsh_history
 # 88x52 best halfscreen zoom term level
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -10,7 +12,7 @@ TERM=xterm-256color
 #[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
 # zshnameddirrc:
-hash -d cf=/home/dennis/.config
+#hash -d cf=/home/dennis/.config
 #hash -d cac=/home/lukesmith/.cache
 #ash -d cf=/home/lukesmith/.config
 #ash -d D=/home/lukesmith/Downloads
@@ -142,13 +144,15 @@ bindkey '^e' edit-command-line
 # Aliases
 
 # General:
-alias ls='ls --all --almost-all --color -hN --group-directories-first'
+#alias ls='ls --all --almost-all --color -hN --group-directories-first'
+alias ls='ls --all --color'
 alias grep="grep --color=auto"
 alias mkdir='mkdir -p'
 alias wget='wget --no-hsts'
 #alias pip='python -m pip'
 alias jpn="jupyter lab --no-browser"
 alias saml="source activate machine_learning"
+alias vim="nvim"
 
 # Scripting
 # perl -MCPAN -e shell
@@ -255,25 +259,29 @@ fi
 [[ -n "${key[Home]}"      ]] && bindkey -M vicmd "${key[Home]}" beginning-of-line
 [[ -n "${key[End]}"       ]] && bindkey -M vicmd "${key[End]}" end-of-line
 
-# Lod ls colors
+# Load ls colors
 if [[ -f ~/.dircolors ]] ; then
     eval $(dircolors -b ~/.dircolors)
 fi
 
 # Launch TMUX
+# Tmux buggy in WSL, so commented out
 export TMUXRC="$HOME/.config/tmux/tmux.conf"
-alias tmux="tmux -2 -f $TMUXRC"
+#alias tmux="tmux -2 -f $TMUXRC"
+alias fj="tmux -2 -f $TMUXRC attach -t 'anaconda' 2>/dev/null || tmux -2 -f $TMUXRC new -s 'anaconda' -n 'X230'"
+alias jf="tmux new-window -t X230 -a -d -n WCC -c /mnt/c/Users zsh"
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    trap clear SIGINT
-    echo "Ctl-C to skip TMUX auto attach..."; sleep 0.2s && tmux attach -t "anaconda" 2>/dev/null || tmux new -s "anaconda" -n "X200"
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    #trap clear SIGINT
+    #echo "Ctl-C to skip TMUX auto attach..."; sleep 0.2s && tmux attach -t "anaconda" 2>/dev/null || tmux new -s "anaconda" -n "X230"
+    #clear
+#fi
+
+# Optional / testing tmux commands:
     #&& tmux new-window -d -n STATS -c "/mnt/c/Users/denni/Downloads/coursework/MTH160/R" "zsh"
     #echo "Ctl-C to skip TMUX auto attach..."; sleep 0.2s && tmux new-session -A -s "anaconda" -n "X200"
     #pgrep tmux >/dev/null && tmux set -g status off
-    clear
     #tmux attach -t anaconda 2>/dev/null
-fi
-
 # Run neofetch to flex on the normies
 # neofetch
 # $player

@@ -1,48 +1,52 @@
 set nocompatible
 " change viminfo directory
-if !has('nvim')
-    set viminfo+=n~/.vim/viminfo
-endif
+"if !has('nvim')
+    "set viminfo+=n~/.vim/viminfo
+"endif
 
 " -----------------------------------------------
 " Plugins
 " look into using junegunn/vim-plug instead
 " of vundle
-
 " Install with :PluginInstall
 " Update with :PluginUpdate
+" Clean with :PluginClean
 " Lookup help with "help [Nvim-R]
+"set rtp+=~/.vim/bundle/Vundle.vim
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim 
 call vundle#begin()
 
+let g:vundle#bundle_dir='~/.config/nvim/bundle/'
 " Plugin Manager
 Plugin 'VundleVim/Vundle.vim'
 
 " Programming
-Plugin 'sheerun/vim-polyglot'
+"Plugin 'sheerun/vim-polyglot'
 Plugin 'preservim/nerdtree'  " run with :NERDTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jalvesaq/Nvim-R'
+"Plugin 'jalvesaq/Nvim-R'
 Plugin 'preservim/nerdcommenter'
 Plugin 'ap/vim-css-color'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-commentary'
 
 " Writing
 Plugin 'junegunn/goyo.vim'
-Plugin 'lervag/vimtex'
-Plugin 'vimwiki/vimwiki'
 
+" Color schemes
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'morhetz/gruvbox'
+"Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
+"Plugin 'altercation/vim-colors-solarized'
+"
+" Unnwanted :(
+"Plugin 'lervag/vimtex'
+"Plugin 'vimwiki/vimwiki'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-commentary'
 " Vim-airline
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 " let g:airline_theme='gruvbox'
-
-" Color schemes
-Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
-Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 filetype plugin indent on
@@ -58,9 +62,12 @@ set encoding=utf-8
 set number relativenumber
 set showmode
 set noswapfile
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+"set backupdir=~/.vim/backup//
+set backupdir=~/.config/nvim/backup//
+"set directory=~/.vim/swap//
+set directory=~/.config/nvim/swap//
+"set undodir=~/.vim/undo//
+set undodir=~/.config/nvim/undo//
 set history=1000
 set autoread
 set mouse=a
@@ -82,7 +89,9 @@ set background=dark
 
 "colorscheme solarized
 "colorscheme gruvbox
-silent! colorscheme gruvbox
+
+"silent! colorscheme gruvbox
+silent! colorscheme nord
 
 " -----------------------------------------------
 "  remove background (allow transparency)
@@ -261,12 +270,12 @@ filetype plugin on
 " -----------------------------------------------
 " LaTeX
 
-let g:tex_flavor='latex'
+"let g:tex_flavor='latex'
 " let g:vimtex_view_method='okular'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-let conceallevel=1
-let g:tex_conceal='abdmg'
+"let g:vimtex_view_method='zathura'
+"let g:vimtex_quickfix_mode=0
+"let conceallevel=1
+"let g:tex_conceal='abdmg'
 
 " -----------------------------------------------
 " Miscellaneous bindings
