@@ -1,0 +1,80 @@
+Krita
+
+ Version: 4.4.8
+ Languages: en_US, en
+ Hidpi: true
+
+Qt
+
+  Version (compiled): 5.15.2
+  Version (loaded): 5.15.2
+
+OS Information
+
+  Build ABI: x86_64-little_endian-lp64
+  Build CPU: x86_64
+  CPU: x86_64
+  Kernel Type: linux
+  Kernel Version: 5.15.8-arch1-1
+  Pretty Productname: Arch Linux
+  Product Type: arch
+  Product Version: unknown
+  Desktop: 
+
+OpenGL Info
+ 
+  Vendor:  "Intel Open Source Technology Center" 
+  Renderer:  "Mesa DRI Mobile Intel® GM45 Express Chipset (CTG)" 
+  Version:  "2.1 Mesa 21.3.1" 
+  Shading language:  "1.20" 
+  Requested format:  QSurfaceFormat(version 3.0, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 0, colorSpace QSurfaceFormat::DefaultColorSpace, profile  QSurfaceFormat::CompatibilityProfile) 
+  Current format:    QSurfaceFormat(version 2.1, options QFlags<QSurfaceFormat::FormatOption>(DeprecatedFunctions), depthBufferSize 24, redBufferSize 8, greenBufferSize 8, blueBufferSize 8, alphaBufferSize 8, stencilBufferSize 8, samples -1, swapBehavior QSurfaceFormat::DoubleBuffer, swapInterval 0, colorSpace QSurfaceFormat::DefaultColorSpace, profile  QSurfaceFormat::NoProfile) 
+     Version: 2.1
+     Supports deprecated functions true 
+     is OpenGL ES: false 
+
+QPA OpenGL Detection Info 
+  supportsDesktopGL: true 
+  supportsOpenGLES: false 
+  isQtPreferOpenGLES: false 
+
+Hardware Information
+
+  GPU Acceleration: auto
+  Memory: 7844 Mb
+  Number of Cores: 2
+  Swap Location: /tmp
+
+Current Settings
+
+  Current Swap Location: /tmp
+  Current Swap Location writable: true
+  Undo Enabled: true
+  Undo Stack Limit: 30
+  Use OpenGL: true
+  Use OpenGL Texture Buffer: true
+  Use AMD Vectorization Workaround: false
+  Canvas State: OPENGL_SUCCESS
+  Autosave Interval: 900
+  Use Backup Files: true
+  Number of Backups Kept: 1
+  Backup File Suffix: ~
+  Backup Location: Same Folder as the File
+  Backup Location writable: false
+  Use Win8 Pointer Input: false
+  Use RightMiddleTabletButton Workaround: false
+  Levels of Detail Enabled: false
+  Use Zip64: false
+
+
+Display Information
+Number of screens: 1
+	Screen: 0
+		Name: LVDS-1
+		Depth: 24
+		Scale: 1
+		Resolution in pixels: 1280x800
+		Manufacturer: Lenovo Group Limited
+		Model: 
+		Refresh Rate: 60.0029
+

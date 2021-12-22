@@ -3,6 +3,28 @@ TERM=xterm-256color
 #export LANG=en_US.UTF-8
 export LS_COLORS=$LS_COLORS:'ow=1;34:';
 export HISTFILE=$HOME/.config/zsh/.zsh_history
+
+
+
+alias pacman="sudo pacman"
+alias systemctl="sudo systemctl"
+alias sptui="spt"
+alias pt="periodic_table_tui"
+
+
+# shift A while in edit mode to autocomplete greytext
+
+
+
+
+
+
+
+
+#
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
 # 88x52 best halfscreen zoom term level
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -88,7 +110,7 @@ setopt autocd  # auto cd into typed directories
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -137,6 +159,11 @@ bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 # Load syntax highlighting; should be last.
 #source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
@@ -153,6 +180,9 @@ alias wget='wget --no-hsts'
 alias jpn="jupyter lab --no-browser"
 alias saml="source activate machine_learning"
 alias vim="nvim"
+alias view="nvim -R"
+
+alias bat="cat /sys/class/power_supply/BAT0/capacity"
 
 # Scripting
 # perl -MCPAN -e shell
@@ -285,3 +315,6 @@ alias jf="tmux new-window -t X230 -a -d -n WCC -c /mnt/c/Users zsh"
 # Run neofetch to flex on the normies
 # neofetch
 # $player
+
+clear
+fortune

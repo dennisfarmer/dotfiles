@@ -19,6 +19,12 @@ Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 Set `accessibility.typeaheadfind.enablesound` to `false`
 Set `browser.tabs.insertAfterCurrent` to `true`
 Set `browser.sessionstore.resume_from_crash` to `false`
+Set `security.dialog_enable_delay` to 0
+Set `browser.compactmode.show` to `true`
+Customize Toolbar >> Density >> Compact
+
+Set `layout.css.devPixelsPerPx` to desired value
+(default is 1.0, x200 looks nice with ~0.8)
 
 ### Website Zoom Levels:
 

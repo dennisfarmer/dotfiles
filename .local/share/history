@@ -1,0 +1,134 @@
+: 1639158564:0;type startx
+: 1639158570:0;type vim
+: 1639158581:0;source ~/github/dotfiles/env
+: 1639158584:0;type startx
+: 1639158590:0;cd github/dotfiles
+: 1639158590:0;ls
+: 1639158593:0;cd ...
+: 1639158593:0;ls
+: 1639158597:0;cd .local/share
+: 1639158597:0;ls
+: 1639158599:0;cd ..
+: 1639158599:0;ls
+: 1639158601:0;cd bin
+: 1639158602:0;ls
+: 1639158604:0;cd ..
+: 1639158604:0;ls
+: 1639158606:0;ls share
+: 1639158624:0;cd ~/github/dotfiles/DWM_SETUP/.local/share
+: 1639158625:0;ls
+: 1639158627:0;cd ..
+: 1639158639:0;cp -r share/* ~/.local/share
+: 1639158644:0;cd
+: 1639158646:0;cd .local
+: 1639158646:0;ls
+: 1639158649:0;cd share
+: 1639158649:0;ls
+: 1639158670:0;cd
+: 1639158671:0;cd -
+: 1639158674:0;cd ..
+: 1639158675:0;l
+: 1639158676:0;sls
+: 1639158677:0;ls
+: 1639158680:0;cd ..
+: 1639158681:0;ls
+: 1639158684:0;cd share
+: 1639158684:0;ls
+: 1639158694:0;history
+: 1639158710:0;man history
+: 1639158722:0;ls
+: 1639158724:0;vim history
+: 1639158729:0;ls
+: 1639158734:0;cd ..
+: 1639158735:0;ls
+: 1639158736:0;cd bin
+: 1639158737:0;ls
+: 1639158739:0;cd ..
+: 1639158739:0;ls
+: 1639158741:0;cd src
+: 1639158741:0;ls
+: 1639158743:0;cd
+: 1639158745:0;cd github/dotfiles
+: 1639158746:0;ls
+: 1639158749:0;cd DWM
+: 1639158753:0;cd DWM_SETUP
+: 1639158753:0;ls
+: 1639158761:0;cd .config
+: 1639158762:0;ls
+: 1639158764:0;cd shell
+: 1639158765:0;ls
+: 1639158766:0;cd
+: 1639158770:0;cd .config
+: 1639158771:0;ls
+: 1639158773:0;cd shell
+: 1639158773:0;ls
+: 1639158775:0;vim profile
+: 1639158779:0;tmux
+: 1639158867:0;exit
+: 1639168215:0;cd
+: 1639168217:0;cd github
+: 1639168220:23;vim test.py
+: 1639168249:0;chmod u+x test.py
+: 1639168265:13;vim test.py
+: 1639168281:2;vim test.pu
+: 1639168286:81;vim test.py
+: 1639168371:1;vim test2.pu
+: 1639168375:98;vim test2.py
+: 1639170866:0;bat
+: 1639171045:0;cd
+: 1639171048:0;cd pictures/screenshots
+: 1639171053:0;ls
+: 1639172277:0;R
+: 1639172278:0;r
+: 1639172278:0;R
+: 1639172307:36;sudo pacman -S r
+: 1639172377:36;sudo pacman -S tk texlive-bin gcc-fortran openblas
+: 1639173976:0;bad
+: 1639173978:0;bat
+: 1639174092:48;dwmblocks
+: 1639174150:0;echo path
+: 1639174153:0;echo $PATH
+: 1639174181:12;vim ~/github/dotfiles/env
+: 1639174199:0;source ~/github/dotfiles/env
+: 1639349158:0;echo $LOCATION
+: 1639349171:0;echo $TERMINAL
+: 1639349280:4;curl wttr.in
+: 1639349309:1;curl wttr.in/ann+arbor
+: 1639349317:1;curl wttr.in
+: 1639349332:29;vim ~/github/dotfiles/env
+: 1639349367:0;source ~/github/dotfiles/env
+: 1639349449:0;cd ../
+: 1639349450:0;ls
+: 1639349454:0;cd ..
+: 1639349455:0;ls
+: 1639349457:0;cd bin
+: 1639349457:0;ls
+: 1639349459:0;cd ..
+: 1639349460:0;ls
+: 1639349465:0;cd -
+: 1639349466:0;ls
+: 1639349470:0;date
+: 1639349489:0;vim ~/.local/src/dwm/config.h
+: 1639590142:0;sudo pacman -S oxygen oxygen-icons
+: 1639590160:0;dolphin
+: 1639590185:0;sudo pacman -S breeze-icons
+: 1639590199:0;sudo pacman -S breeze
+: 1639590206:0;dolphin
+: 1639605352:0;echo $SPOTIFY_CLIENT_ID
+: 1639605406:0;man xclip
+: 1639605414:0;P
+: 1639605418:0;man xclip
+: 1639605676:0;spotifyd
+: 1639605681:0;spt
+: 1639606150:0;pkill spotifyd
+: 1639606158:0;type spotify-notification.clj
+: 1639606164:0;vim ~/.local/bin/spotify-notification.clj
+: 1639606710:0;python -m pip install periodic-table-tui
+: 1639606741:0;pacman -S python-pip
+: 1639606754:0;python -m pip install periodic-table-tui
+: 1639606784:0;pacman -S locate
+: 1639606793:0;find periodic-table-tui
+: 1639606804:0;python periodic-table-tui
+: 1639606808:0;python
+: 1639606853:0;pacman -S gperiodic
+: 1639606892:0;periodic_table_tui

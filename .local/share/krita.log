@@ -1,0 +1,18 @@
+================================================================================
+SESSION: 15 Dec 2021 14:44:58 -0500. Executing krita
+
+Krita Version: 4.4.8, Qt version compiled: 5.15.2, loaded: 5.15.2. Process ID: 66078
+-- -- -- -- -- -- -- --
+15 Dec 2021 14:44:58 -0500: Style: fusion. Available styles: qt5ct-style, Windows, Fusion
+15 Dec 2021 14:45:28 -0500: Created image "Unnamed", 2480 * 3508 pixels, 300 dpi. Color model: 8-bit integer/channel RGB/Alpha (sRGB-elle-V2-srgbtrc.icc). Layers: 2
+15 Dec 2021 14:54:22 -0500: CLOSING SESSION
+================================================================================
+SESSION: 17 Dec 2021 09:27:46 -0500. Executing /usr/bin/krita /home/dennis/downloads/coursework/mth192/lectures/7.1/7.1(pg1)-JfgHBpJztgw.jpg
+
+Krita Version: 4.4.8, Qt version compiled: 5.15.2, loaded: 5.15.2. Process ID: 23935
+-- -- -- -- -- -- -- --
+17 Dec 2021 09:27:46 -0500: Style: fusion. Available styles: qt5ct-style, Windows, Fusion
+17 Dec 2021 09:27:59 -0500: Importing image/webp to application/x-krita. Location: /home/dennis/downloads/coursework/mth192/lectures/7.1/7.1(pg1)-JfgHBpJztgw.jpg. Real location: /home/dennis/downloads/coursework/mth192/lectures/7.1/7.1(pg1)-JfgHBpJztgw.jpg. Batchmode: 0
+17 Dec 2021 09:27:59 -0500: Failed to load image from image/webp
+17 Dec 2021 09:28:02 -0500: Loading canceled. Error:
+17 Dec 2021 09:28:05 -0500: CLOSING SESSION

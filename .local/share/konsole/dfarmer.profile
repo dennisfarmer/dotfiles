@@ -1,0 +1,23 @@
+[Appearance]
+ColorScheme=Gruvbox_dark
+Font=JetBrains Mono,13,-1,5,50,0,0,0,0,0
+
+[Cursor Options]
+CursorShape=1
+
+[General]
+Command=/usr/bin/zsh
+DimWhenInactive=false
+Name=dfarmer
+Parent=FALLBACK/
+ShowTerminalSizeHint=true
+StartInCurrentSessionDir=false
+TerminalCenter=false
+TerminalColumns=80
+TerminalRows=25
+
+[Interaction Options]
+OpenLinksByDirectClickEnabled=true
+
+[Scrolling]
+ScrollBarPosition=2

@@ -1,7 +1,9 @@
 ! Swap caps lock and escape
 remove Lock = Caps_Lock
-keysym Escape = Caps_Lock
-keysym Caps_Lock = Escape
+!keysym Escape = Caps_Lock
+keycode 9 = Caps_Lock
+!keysym Caps_Lock = Escape
+keycode 66 = Escape
 add Lock = Caps_Lock
 
 ! xev to view key events (keycode ... (keysym ... , XF86Forward))

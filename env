@@ -1,11 +1,27 @@
-#!/bin/sh
+#!/bin/zsh
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/statusbar:$PATH"
+
+
+# dwmblocks
+export LOCATION="ann+arbor"
+
+
+
+# Spotify
+export SPOTIFY_CLIENT_ID="3c5da63320124caa8d967fa00b09ef9e"
+export SPOTIFY_CLIENT_SECRET="e8234b4ffa214835a72bf704ab33dbfa"
+
+
+
 
 # Programming Paths
 export RPROFILE="/usr/lib/R/library/base/R/Rprofile"
-
+export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 
 # Programs
 #export EDITOR="gvim -v"
@@ -13,6 +29,10 @@ export RPROFILE="/usr/lib/R/library/base/R/Rprofile"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PDFVIEWER="okular"
+export BROWSER="firefox"
+export TERMINAL="st"
+
+export PULSEAUDIO_SYSTEM_START=1
 
 # Directories
 export SCRIPTS="$HOME/github/scripts"
@@ -22,6 +42,8 @@ export SCRIPTS="$HOME/github/scripts"
 export VIMINIT="source $XDG_CONFIG_HOME/nvim/init.vim"
 export LESSHISTFILE="$HOME/.history/.lesshst"
 export PSQL_HISTORY="$HOME/.history/.psql_history"
+export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+
 
 # Paths
 export ZSHRC="$XDG_CONFIG_HOME/zsh/.zshrc"
@@ -46,3 +68,21 @@ export CHN111="/run/media/dennisfarmer/Samsung-USB/coursework/chinese"
 export MUS140="/run/media/dennisfarmer/Samsung-USB/coursework/music_theory"
 export CPS271="/run/media/dennisfarmer/Samsung-USB/coursework/c++"
 
+# Other stuff
+export LESS=-R
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
+export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
+export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
+export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
+
+
+
+#export QT_QPA_PLATFORMTHEME=qt5ct

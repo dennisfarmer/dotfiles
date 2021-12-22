@@ -9,11 +9,13 @@ set nocompatible
 " look into using junegunn/vim-plug instead
 " of vundle
 " Install with :PluginInstall
+"   or vim +PluginInstall +qall
 " Update with :PluginUpdate
 " Clean with :PluginClean
 " Lookup help with "help [Nvim-R]
 "set rtp+=~/.vim/bundle/Vundle.vim
 filetype off
+filetype plugin on
 set rtp+=~/.config/nvim/bundle/Vundle.vim 
 call vundle#begin()
 
@@ -31,6 +33,7 @@ Plugin 'ap/vim-css-color'
 
 " Writing
 Plugin 'junegunn/goyo.vim'
+Plugin 'vimwiki/vimwiki'
 
 " Color schemes
 Plugin 'arcticicestudio/nord-vim'
@@ -254,6 +257,12 @@ let g:goyo_width = 106
 filetype indent on
 filetype plugin on
 "autocmd FileType python,r,rmd set breakindentopt=shift:4
+
+
+map <C-p> :!chmod u+x %; "%:p"<CR>
+map <C-k> :set wrap!<CR>
+
+
 
 " -----------------------------------------------
 "  R: ~/.vim/ftplugin/r.vim
