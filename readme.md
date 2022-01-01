@@ -305,3 +305,9 @@ UUID=64A5-F009  /mnt/sdb1  exfat  defaults  0  2
     conda update conda 
     ```
 
+# Github
+
+```
+gh config set -h github.com git_protocol https
+gh auth login
+```

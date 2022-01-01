@@ -11,6 +11,7 @@ alias systemctl="sudo systemctl"
 alias sptui="spt"
 alias pt="periodic_table_tui"
 
+#alias bundle_env="$HOME/.rbenv/shims/
 
 # shift A while in edit mode to autocomplete greytext
 
@@ -256,8 +257,12 @@ fi
 #unset __conda_setup
 
 # Install Ruby Gems to ~/gems
-# export GEM_HOME="$HOME/gems"
-# export PATH="$HOME/gems/bin:$PATH"
+export GEM_HOME="$HOME/gems"
+#export PATH="$HOME/gems/bin:$PATH"
+#export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin/:$PATH"
+rbenv init - >/dev/null
+export PATH="$HOME/.rbenv/shims:${PATH}"
 
 # Fix home key error
 
@@ -316,5 +321,5 @@ alias jf="tmux new-window -t X230 -a -d -n WCC -c /mnt/c/Users zsh"
 # neofetch
 # $player
 
-clear
+#clear
 fortune
