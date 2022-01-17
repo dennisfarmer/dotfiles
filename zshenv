@@ -1,3 +1,3 @@
 #!/usr/bin/zsh
 export ZDOTDIR="$HOME/.config/zsh"
-[ -f "$HOME/github/dotfiles/env" ] && source "$HOME/github/dotfiles/env"
+[ -f "$HOME/Github/dotfiles/env" ] && source "$HOME/Github/dotfiles/env"

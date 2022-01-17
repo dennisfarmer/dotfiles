@@ -138,7 +138,20 @@ set-option -g status-position bottom
 #set-window-option -g window-status-current-format "#[fg=colour237, bg=colour214, nobold, noitalics, nounderscore]#[fg=colour239, bg=colour214] #I #[fg=colour239, bg=colour214, bold] #W #[fg=colour214, bg=colour237, nobold, noitalics, nounderscore]"
 #set-window-option -g window-status-format "#[fg=colour237,bg=colour239,noitalics]#[fg=colour223,bg=colour239] #I #[fg=colour223, bg=colour239] #W #[fg=colour239, bg=colour237, noitalics]"
 
-
+# ZSHRC (legacy)
+#alias tmux="tmux -2 -f $TMUXRC"
+#alias fj="tmux -2 -f $TMUXRC attach -t 'anaconda' 2>/dev/null || tmux -2 -f $TMUXRC new -s 'anaconda' -n 'X230'"
+#alias jf="tmux new-window -t X230 -a -d -n WCC -c /mnt/c/Users zsh"
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    #trap clear SIGINT
+    #echo "Ctl-C to skip TMUX auto attach..."; sleep 0.2s && tmux attach -t "anaconda" 2>/dev/null || tmux new -s "anaconda" -n "X230"
+    #clear
+#fi
+# Optional / testing tmux commands:
+    #&& tmux new-window -d -n STATS -c "/mnt/c/Users/denni/Downloads/coursework/MTH160/R" "zsh"
+    #echo "Ctl-C to skip TMUX auto attach..."; sleep 0.2s && tmux new-session -A -s "anaconda" -n "X200"
+    #pgrep tmux >/dev/null && tmux set -g status off
+    #tmux attach -t anaconda 2>/dev/null
 
 
 

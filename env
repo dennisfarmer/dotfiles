@@ -6,6 +6,15 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin/statusbar:$PATH"
 
+#export USERDIR="/mnt/c/Users/denni"
+export USERDIR="$HOMW"
+export COURSEWORK="$USERDIR/Coursework"
+
+# Applications
+#export PATH="/Applications:$PATH"
+export PATH="$PATH:/Applications/Firefox.app/Contents/MacOS"
+export PATH="/Applications/Rstudio.app/Contents/MacOS/pandoc:$PATH"
+export PATH="/Library/TeX/texbin:$PATH"
 
 # dwmblocks
 export LOCATION="ann+arbor"
@@ -16,12 +25,21 @@ export LOCATION="ann+arbor"
 export SPOTIFY_CLIENT_ID="3c5da63320124caa8d967fa00b09ef9e"
 export SPOTIFY_CLIENT_SECRET="e8234b4ffa214835a72bf704ab33dbfa"
 
-
-
+# Ruby
+# Install Ruby Gems to ~/gems
+#export GEM_HOME="$HOME/gems"
+#export PATH="$HOME/gems/bin:$PATH"
+#export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin/:$PATH"
+#rbenv init - >/dev/null
+#export PATH="$HOME/.rbenv/shims:${PATH}"
 
 # Programming Paths
 export RPROFILE="/usr/lib/R/library/base/R/Rprofile"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
+
+# brew
+export HOMEBREW_NO_ENV_HINTS=""
 
 # Programs
 #export EDITOR="gvim -v"
@@ -30,12 +48,12 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PDFVIEWER="okular"
 export BROWSER="firefox"
-export TERMINAL="st"
+#export TERMINAL="st"
 
 export PULSEAUDIO_SYSTEM_START=1
 
 # Directories
-export SCRIPTS="$HOME/github/scripts"
+export SCRIPTS="$HOME/Github/scripts"
 
 # Config Redirection
 #export VIMINIT="source $HOME/.vim/vimrc"
@@ -46,19 +64,24 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 
 
 # Paths
-export ZSHRC="$XDG_CONFIG_HOME/zsh/.zshrc"
-export VIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
-export TMUXRC="$XDG_CONFIG_HOME/tmux/tmux.conf"
-export POLYBARRC="$XDG_CONFIG_HOME/polybar/config.ini"
-export BSPWMRC="$XDG_CONFIG_HOME/bspwm/bspwmrc"
-export SXHKDRC="$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+export DOT="$HOME/Github/dotfiles"
+export ENV="$DOT/env"
+export ZSHRC="$DOT/zshrc"
+export VIMRC="$DOT/vimrc"
+export TMUXRC="$DOT/tmuxrc"
 
+#export ZSHRC="$XDG_CONFIG_HOME/zsh/.zshrc"
+#export VIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
+#export TMUXRC="$XDG_CONFIG_HOME/tmux/tmux.conf"
+#export POLYBARRC="$XDG_CONFIG_HOME/polybar/config.ini"
+#export BSPWMRC="$XDG_CONFIG_HOME/bspwm/bspwmrc"
+#export SXHKDRC="$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 export POLYRC="$POLYBARRC"
 export BSPRC="$BSPWMRC"
 export SXRC="$SXHKDRC"
 
-export PGSYSCONFDIR="$HOME/anaconda3/etc/postgres"
-export PSQLRC="$PGSYSCONFDIR/psqlrc"
+#export PGSYSCONFDIR="$HOME/anaconda3/etc/postgres"
+#export PSQLRC="$PGSYSCONFDIR/psqlrc"
 #export $CONDARC="$HOME/.condarc"
 
 # Coursework

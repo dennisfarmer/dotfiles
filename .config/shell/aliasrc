@@ -1,0 +1,98 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# sudo not required for some system commands
+for command in mount umount sv pacman updatedb su ; do
+	alias $command="sudo $command"
+done; unset command
+
+# General
+if [[ 'uname' == "Darwin" ]]; then
+    alias ls='ls -AG'
+else
+    #alias ls='ls --all --almost-all --color -hN --group-directories-first'
+	alias ls="ls -hN --color=auto --group-directories-first" \
+fi
+alias \
+    grep="grep --color=auto" \
+    mkdir='mkdir -pv' \
+    wget='wget --no-hsts'
+	diff="diff --color=auto --side-by-side" \
+	diffs="diff --color=auto --side-by-side --suppress-common-lines" \
+    view="$EDITOR -R"
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner"
+
+# Programming
+alias \
+    jpn="jupyter lab --no-browser" \
+    saml="source activate machine_learning" \
+
+alias bat="cat /sys/class/power_supply/BAT0/capacity"
+# ssh/onedrive/wsl
+# alias sshpi='ssh pi@192.168.1.246'
+# alias ods='onedrive --synchronize'
+alias cdwin='cd /mnt/c/Users/denni'
+#export git_token="$(cat ~/github/mastertoken.txt)"
+
+# Washtenaw Community College USB Drive Shortcuts
+alias \
+    wcc="cd $COURSEWORK" \
+    cps="cd $COURSEWORK/cps272" \
+    mp="cd $COURSEWORK/cps272/00\ -\ Machine\ Problems" \
+    phy="cd $COURSEWORK/phy*" \
+    cem="cd $COURSEWORK/cem*" \
+    eng="cd $COURSEWORK/eng*" \
+    mth="cd $COURSEWORK/mth293" \
+    cw="cd $COURSEWORK" \
+    mth160="cd $COURSEWORK/MTH160" \
+    coverl="cd $COURSEWORK/internships/cover\ letter/Awesome-CV/examples" \
+    cv="cd $COURSEWORK/umich_summer_institute/cv"
+
+# Bindings for obscure stuff
+alias \
+    vish="vim $DOT/install*" \
+    jsontool='python -m json.tool' \
+    dsa='anaconda-navigator'
+    #spotify="flatpak run com.spotify.Client"
+
+alias \
+    pacman="sudo pacman" \
+    systemctl="sudo systemctl" \
+    sptui="spt" \
+    pt="periodic_table_tui" \
+    htop="sudo htop" \
+
+# Colorize commands when possible.
+#alias \
+	#ccat="highlight --out-format=ansi"
+
+# These common commands are just too long! Abbreviate them.
+#alias \
+	#ka="killall" \
+	#g="git" \
+	#trem="transmission-remote" \
+	#YT="youtube-viewer" \
+	#sdn="sudo shutdown -h now" \
+	#e="$EDITOR" \
+	#v="$EDITOR" \
+	#p="sudo pacman" \
+	#xi="sudo xbps-install" \
+	#xr="sudo xbps-remove -R" \
+	#xq="xbps-query" \
+	#z="zathura"
+
+#alias \
+	#magit="nvim -c MagitOnly" \
+	#ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+	#weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
