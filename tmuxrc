@@ -10,9 +10,14 @@ bind Space send-prefix
 # Split windows using | and -
 unbind '"'
 unbind %
-#bind | split-window -h
-bind \\ split-window -h -c '#{pane_current_path}'
-#bind \ split-window -h -c '#{pane_current_path}'
+
+# macos
+#bind \\ split-window -h -c '#{pane_current_path}'
+#bind - split-window -v -c '#{pane_current_path}'
+
+# wsl
+#bind | split-window -h -c '#{pane_current_path}'
+bind \ split-window -h -c '#{pane_current_path}'
 bind - split-window -v -c '#{pane_current_path}'
 
 #set status line update interval (for clock)

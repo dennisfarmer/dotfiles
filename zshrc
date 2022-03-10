@@ -15,9 +15,6 @@ export HISTFILE=$HOME/.config/zsh/.zsh_history
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-#[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
-#[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="cypher"
@@ -179,6 +176,10 @@ if [[ -f ~/.dircolors ]] ; then
     eval $(dircolors -b ~/.dircolors)
 fi
 
+#[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
+[ -f "${DOT_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${DOT_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+#[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+#
 # neofetch
 #clear
 #fortune

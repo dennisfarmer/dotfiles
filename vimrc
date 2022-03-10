@@ -25,15 +25,15 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Programming
 "Plugin 'sheerun/vim-polyglot'
-Plugin 'preservim/nerdtree'  " run with :NERDTree
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'preservim/nerdtree'  " run with :NERDTree
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'jalvesaq/Nvim-R'
-Plugin 'preservim/nerdcommenter'
-Plugin 'ap/vim-css-color'
+"Plugin 'preservim/nerdcommenter'
+"Plugin 'ap/vim-css-color'
 
 " Writing
 Plugin 'junegunn/goyo.vim'
-Plugin 'vimwiki/vimwiki'
+"Plugin 'vimwiki/vimwiki'
 
 " Color schemes
 Plugin 'arcticicestudio/nord-vim'
@@ -62,7 +62,7 @@ filetype plugin indent on
 
 syntax enable
 set encoding=utf-8
-set number relativenumber
+"set number relativenumber
 set showmode
 set noswapfile
 "set backupdir=~/.vim/backup//
@@ -96,6 +96,9 @@ set background=dark
 "silent! colorscheme gruvbox
 silent! colorscheme nord
 
+set cursorline!
+set laststatus=0
+"set number! relativenumber!
 " -----------------------------------------------
 "  remove background (allow transparency)
 hi Normal guibg=NONE ctermbg=NONE
@@ -105,7 +108,7 @@ hi Normal guibg=NONE ctermbg=NONE
 " Powerline
 
 set rtp+=$HOME/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim/
-set laststatus=2
+"set laststatus=2
 set t_Co=256
 
 " -----------------------------------------------
@@ -241,7 +244,6 @@ onoremap <silent> k k
 " autocmd FileType markdown,text,latex,plaintex
 nnoremap <buffer> <Leader>g :Goyo<CR>
 
-"<bar>set cursorline!
 
 let g:goyo_width = 106
 " g:goyo_height 85

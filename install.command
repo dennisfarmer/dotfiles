@@ -8,13 +8,14 @@ brew install koekeishiya/formulae/skhd
 brew services start skhd
 
 ln -s $HOME/Github/dotfiles/tmuxrc $HOME/.config/tmux/tmux.conf
+ln -s $HOME/Github/dotfiles/zshrc $HOME/.config/zsh/.zshrc
 
-
+#sudo apt-get install texlive-fonts-extra
 
 
 
 # Install oh-my-zsh
-#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim

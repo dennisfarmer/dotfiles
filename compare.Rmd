@@ -1,0 +1,32 @@
+# Linux
+PROS:
+not windows
+    more compatiable with shell stuff
+    more customizable
+    better wm
+    can look like windows 98
+    cool terminal email?
+
+
+CONS:
+    no ms office / keynote 
+    dealing with dmenu (find alternative? or customize)
+    fan noise
+
+# Mac OS
+PROS:
+not windows
+    cool techy aesthetic
+    more modern
+    battery life
+    keynote / ms office
+    integration with calendar and email (can probably figure out on linux)
+    quiet fans
+
+CONS:
+    unreliable (might not boot lol)
+    might not be sustainable (M1 chip)
+    *shitty key binds / caps lock issues*
+    sleep issues with usb wifi (unreliable wifi)
+
+

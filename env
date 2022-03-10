@@ -65,6 +65,7 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 
 # Paths
 export DOT="$HOME/Github/dotfiles"
+export DOT_CONFIG_HOME="$DOT/.config"
 export ENV="$DOT/env"
 export ZSHRC="$DOT/zshrc"
 export VIMRC="$DOT/vimrc"
