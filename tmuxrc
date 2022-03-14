@@ -12,14 +12,14 @@ unbind '"'
 unbind %
 
 # macos
-#bind \\ split-window -h -c '#{pane_current_path}'
-#bind - split-window -v -c '#{pane_current_path}'
-
-# wsl
-#bind | split-window -h -c '#{pane_current_path}'
-bind \ split-window -h -c '#{pane_current_path}'
+bind \\ split-window -h -c '#{pane_current_path}'
 bind - split-window -v -c '#{pane_current_path}'
 
+# wsl
+#bind \ split-window -h -c '#{pane_current_path}'
+#bind - split-window -v -c '#{pane_current_path}'
+
+#bind | split-window -h -c '#{pane_current_path}'
 #set status line update interval (for clock)
 #set-option -s status-interval 1
 

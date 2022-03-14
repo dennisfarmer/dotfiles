@@ -14,9 +14,11 @@ done; unset command
 # General
 if [[ 'uname' == "Darwin" ]]; then
     alias ls='ls -AG'
-else
+else {
+	alias ls="ls -ahN --color=auto --group-directories-first"
+	#alias ls="ls -hN --color=auto --group-directories-first"
     #alias ls='ls --all --almost-all --color -hN --group-directories-first'
-	alias ls="ls -hN --color=auto --group-directories-first"
+}
 fi
 alias \
     grep="grep --color=auto" \
@@ -96,4 +98,9 @@ alias \
 	#magit="nvim -c MagitOnly" \
 	#ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	#weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
-alias tmux="tmux -f $TMUXRC"
+alias \
+    tmux="tmux -f $TMUXRC" \
+    tks="tmux kill-server" \
+    hotspot="nmcli device wifi rescan; nmcli device wifi connect dissociation-rectangle password securepassword" \
+    wifipasswd="nmcli device wifi show-password"
+

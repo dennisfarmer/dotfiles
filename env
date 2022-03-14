@@ -1,24 +1,39 @@
 #!/bin/zsh
 
+OS="arch"
+
+#export USERDIR="/mnt/c/Users/denni"
+#export USERDIR="/Users/dennis"
+export USERDIR="$HOME"
+export COURSEWORK="$USERDIR/coursework"
+
+# Paths
+export DOT="$USERDIR/github/dotfiles"
+export DOT_CONFIG_HOME="$DOT/.config"
+export ENV="$DOT/env"
+export ZSHRC="$DOT/zshrc"
+export VIMRC="$DOT/vimrc"
+export TMUXRC="$DOT/tmuxrc"
+export ALIASRC="$DOT_CONFIG_HOME/shell/aliasrc"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/bin/statusbar:$PATH"
+export PATH="$DOT/.local/bin:$PATH"
+export PATH="$DOT/.local/bin/statusbar:$PATH"
 
-#export USERDIR="/mnt/c/Users/denni"
-export USERDIR="$HOMW"
-export COURSEWORK="$USERDIR/Coursework"
 
-# Applications
-#export PATH="/Applications:$PATH"
-export PATH="$PATH:/Applications/Firefox.app/Contents/MacOS"
-export PATH="/Applications/Rstudio.app/Contents/MacOS/pandoc:$PATH"
-export PATH="/Library/TeX/texbin:$PATH"
+if [[ "$OS" == "macos" ]]; then {
+	# Applications
+	#export PATH="/Applications:$PATH"
+	export PATH="$PATH:/Applications/Firefox.app/Contents/MacOS"
+	export PATH="/Applications/Rstudio.app/Contents/MacOS/pandoc:$PATH"
+	export PATH="/Library/TeX/texbin:$PATH"
+}
+fi
 
 # dwmblocks
 export LOCATION="ann+arbor"
-
 
 
 # Spotify
@@ -36,7 +51,7 @@ export SPOTIFY_CLIENT_SECRET="e8234b4ffa214835a72bf704ab33dbfa"
 
 # Programming Paths
 export RPROFILE="/usr/lib/R/library/base/R/Rprofile"
-export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
+export XINITRC="${DOT_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 
 # brew
 export HOMEBREW_NO_ENV_HINTS=""
@@ -53,7 +68,7 @@ export BROWSER="firefox"
 export PULSEAUDIO_SYSTEM_START=1
 
 # Directories
-export SCRIPTS="$HOME/Github/scripts"
+export SCRIPTS="$HOME/github/scripts"
 
 # Config Redirection
 #export VIMINIT="source $HOME/.vim/vimrc"
@@ -63,13 +78,6 @@ export PSQL_HISTORY="$HOME/.history/.psql_history"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 
 
-# Paths
-export DOT="$HOME/Github/dotfiles"
-export DOT_CONFIG_HOME="$DOT/.config"
-export ENV="$DOT/env"
-export ZSHRC="$DOT/zshrc"
-export VIMRC="$DOT/vimrc"
-export TMUXRC="$DOT/tmuxrc"
 
 #export ZSHRC="$XDG_CONFIG_HOME/zsh/.zshrc"
 #export VIMRC="$XDG_CONFIG_HOME/nvim/init.vim"

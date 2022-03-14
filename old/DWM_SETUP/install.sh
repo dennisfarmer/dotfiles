@@ -31,8 +31,8 @@ mount /dev/sda2 /mnt
 
 
 #for uefi:
-mkdir -p /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
+mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot
 #else:
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
@@ -46,8 +46,8 @@ systemctl enable NetworkManager
 
 #for uefi:
 pacman -S efibootmgr
-mkdir /boot/efi
-grub-install --target=x86_64-efi --efi-directory=/boot/efi
+#mkdir /boot/efi
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 #else
 grub-install /dev/sda
 
@@ -77,8 +77,11 @@ nmcli device wifi connect SSID-Name --ask
 export VISUAL="vim"
 visudo /etc/sudoers
 
+#useradd -m dennis
+#usermod -g wheel dennis
+
 mkdir /home/dennis/dl  # downloads folder
-pacman -S xorg-server xorg-xinit
+pacman -S xorg-server xorg-xinit git
 mkdir /home/dennis/github
 cd /home/dennis/github
 git clone https://github.com/dennisfarmer/dotfiles.git
