@@ -74,3 +74,4 @@ yay -S ttf-symbola-free
 sudo pacman -Syu
 sudo pacman -S lib32-mesa opengl-man-pages lib32-mesa-vdpau lib32-libva-mesa-driver lib32-vulkan-driver
 lib32-vulkan-mesa-layers
+man -t bash | ps2pdf - >bash.pdf
