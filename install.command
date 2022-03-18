@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+
+
+
+# dotfiles.github.io
+
+
+
+
 OS="$1"
 if [[ "$OS" == "macos" ]]; then {
 	brew install koekeishiya/formulae/yabai
