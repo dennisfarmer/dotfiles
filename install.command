@@ -63,10 +63,6 @@ mkdir -p $XDG_CONFIG_HOME/nvim/backup
 mkdir -p $XDG_CONFIG_HOME/nvim/swap
 mkdir -p $XDG_CONFIG_HOME/nvim/undo
 
-ln -s $DOT/tmuxrc $HOME/.config/tmux/tmux.conf
-ln -s $DOT/zshrc $HOME/.config/zsh/.zshrc
-ln -s $DOT/vimrc $HOME/.config/nvim/init.vim
-ln -s $DOT/zshenv $HOME/.zshenv
 sudo pacman -S xf86-video-intel
 sudo pacman -S xterm
 sudo pacman -S pamixer mpc
@@ -75,3 +71,12 @@ sudo pacman -Syu
 sudo pacman -S lib32-mesa opengl-man-pages lib32-mesa-vdpau lib32-libva-mesa-driver lib32-vulkan-driver
 lib32-vulkan-mesa-layers
 man -t bash | ps2pdf - >bash.pdf
+
+# restart pulseaudio
+#pulseaudio --kill
+#pulseaudio -D
+
+# check filesystem of a drive
+# sudo file -sL /dev/sda1
+
+# 12 zooms of st is optimal zoom (make default?)

@@ -5,6 +5,18 @@ export LS_COLORS=$LS_COLORS:'ow=1;34:';
 export HISTFILE=$HOME/.config/zsh/.zsh_history
 
 
+# LUKE SMITH SHELL PROMPT
+#autoload -U colors && colors	# Load colors
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+#setopt autocd		# Automatically cd into typed directory.
+#stty stop undef		# Disable ctrl-s to freeze terminal.
+#setopt interactive_comments
+
+alias R="R --no-save"
+# History in cache directory:
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE=~/.cache/zsh/history
 
 
 #alias bundle_env="$HOME/.rbenv/shims/
@@ -26,15 +38,11 @@ setopt autocd  # auto cd into typed directories
 # Prompt config:
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
-# bindkey -e  # emacs mode
-bindkey -v # vi mode
+bindkey -v
 export KEYTIMEOUT=1
 
 # Auto complete with <tab>
@@ -139,37 +147,6 @@ fi
     #fi
 #fi
 #unset __conda_setup
-
-
-# Fix home key error
-
-#typeset -A key
-#key=(
-  #BackSpace  "${terminfo[kbs]}"
-  #Home       "${terminfo[khome]}"
-  #End        "${terminfo[kend]}"
-  #Insert     "${terminfo[kich1]}"
-  #Delete     "${terminfo[kdch1]}"
-  #Up         "${terminfo[kcuu1]}"
-  #Down       "${terminfo[kcud1]}"
-  #Left       "${terminfo[kcub1]}"
-  #Right      "${terminfo[kcuf1]}"
-  #PageUp     "${terminfo[kpp]}"
-  #PageDown   "${terminfo[knp]}"
-#)
-
-# Setup key accordingly
-[[ -n "${key[BackSpace]}" ]] && bindkey "${key[BackSpace]}" backward-delete-char
-[[ -n "${key[Home]}"      ]] && bindkey "${key[Home]}" beginning-of-line
-[[ -n "${key[End]}"       ]] && bindkey "${key[End]}" end-of-line
-[[ -n "${key[Insert]}"    ]] && bindkey "${key[Insert]}" overwrite-mode
-[[ -n "${key[Delete]}"    ]] && bindkey "${key[Delete]}" delete-char
-[[ -n "${key[Up]}"        ]] && bindkey "${key[Up]}" up-line-or-beginning-search
-[[ -n "${key[Down]}"      ]] && bindkey "${key[Down]}" down-line-or-beginning-search
-[[ -n "${key[PageUp]}"    ]] && bindkey "${key[PageUp]}" beginning-of-buffer-or-history
-[[ -n "${key[PageDown]}"  ]] && bindkey "${key[PageDown]}" end-of-buffer-or-history
-[[ -n "${key[Home]}"      ]] && bindkey -M vicmd "${key[Home]}" beginning-of-line
-[[ -n "${key[End]}"       ]] && bindkey -M vicmd "${key[End]}" end-of-line
 
 # Load ls colors
 if [[ -f ~/.dircolors ]] ; then

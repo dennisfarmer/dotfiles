@@ -16,12 +16,15 @@ set nocompatible
 "set rtp+=~/.vim/bundle/Vundle.vim
 filetype off
 filetype plugin on
-set rtp+=~/.config/nvim/bundle/Vundle.vim 
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 let g:vundle#bundle_dir='~/.config/nvim/bundle/'
 " Plugin Manager
 Plugin 'VundleVim/Vundle.vim'
+
+
+Plugin 'vim-airline/vim-airline'
 
 " Programming
 "Plugin 'sheerun/vim-polyglot'
@@ -73,6 +76,7 @@ set directory=~/.config/nvim/swap//
 set undodir=~/.config/nvim/undo//
 set history=1000
 set autoread
+set go=a
 set mouse=a
 " map <ScrollWheelUp> <C-Y>
 " map <ScrollWheelDown> <C-E>
@@ -94,8 +98,10 @@ set background=dark
 "colorscheme gruvbox
 
 "silent! colorscheme gruvbox
-silent! colorscheme nord
+" normally uses nord but what if no colorscheme?
+"silent! colorscheme nord
 
+set title
 set cursorline!
 set laststatus=0
 "set number! relativenumber!
@@ -118,7 +124,8 @@ set ignorecase
 set nohlsearch
 "set hlsearch
 "nnoremap <CR> :noh<CR><CR>
-let mapleader="\<Space>"
+"let mapleader="\<Space>"
+let mapleader=","
 set lazyredraw
 
 " -----------------------------------------------
@@ -263,6 +270,65 @@ filetype plugin on
 
 map <C-p> :!chmod u+x %; "%:p"<CR>
 map <C-k> :set wrap!<CR>
+"
+" Disables automatic commenting on newline:
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Check file in shellcheck:
+	map <leader>s :!clear && shellcheck -x %<CR>
+
+" Replace all is aliased to S.
+	nnoremap S :%s//g<Left><Left>
+
+" Compile document, be it groff/LaTeX/markdown/etc.
+	map <leader>c :w! \| !compiler "<c-r>%"<CR>
+
+" Open corresponding .pdf/.html or preview
+	map <leader>p :!opout <c-r>%<CR><CR>
+
+" Runs a script that cleans out tex build files whenever I close out of a .tex file.
+	autocmd VimLeave *.tex !texclear %
+
+" Save file as sudo on files that require root permission
+	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" Automatically deletes all trailing whitespace and newlines at end of file on save. & reset cursor position
+ 	autocmd BufWritePre * let currPos = getpos(".")
+	autocmd BufWritePre * %s/\s\+$//e
+	autocmd BufWritePre * %s/\n\+\%$//e
+	autocmd BufWritePre *.[ch] %s/\%$/\r/e
+  	autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
+
+" Recompile dwmblocks on config edit.
+	"autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
+
+
+" Function for toggling the bottom statusbar:
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
+endfunction
+nnoremap <leader>h :call ToggleHiddenAll()<CR>
+
+
+
+
+
+
+
+
 
 
 
