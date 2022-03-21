@@ -12,21 +12,24 @@ Copy `userChrome.css` to `chrome` folder
 
 Copy `installs.ini` and `profiles.ini` to your firefox directory (`$HOME/.mozilla/firefox`)
 
-Visit `about:config` from Firefox
 
-### `userChrome.css` CONFIGURATION:
+
+# `userChrome.css` Configuration:
 
 contents of `$HOME/.mozilla/firefox/somethings.defaults/chrome/userChrome.css`
 ```
 #contentAreaContextMenu{ margin: 5px 0 0 5px }
 ```
-
+Visit `about:config` from Firefox
 Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 
 (fixes firefox right click issue)
 
 <hr>
 
+### My config
+
+Visit `about:config` from Firefox
 
 Set `accessibility.typeaheadfind.enablesound` to `false`
 
