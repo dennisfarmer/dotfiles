@@ -14,6 +14,8 @@ Copy `installs.ini` and `profiles.ini` to your firefox directory (`$HOME/.mozill
 
 Visit `about:config` from Firefox
 
+### `userChrome.css` configuration
+
 contents of `$HOME/.mozilla/firefox/somethings.defaults/chrome/userChrome.css`
 ```
 #contentAreaContextMenu{ margin: 5px 0 0 5px }
