@@ -14,7 +14,7 @@ Copy `installs.ini` and `profiles.ini` to your firefox directory (`$HOME/.mozill
 
 Visit `about:config` from Firefox
 
-### `userChrome.css` configuration
+### `userChrome.css` CONFIGURATION:
 
 contents of `$HOME/.mozilla/firefox/somethings.defaults/chrome/userChrome.css`
 ```
@@ -22,6 +22,11 @@ contents of `$HOME/.mozilla/firefox/somethings.defaults/chrome/userChrome.css`
 ```
 
 Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+
+(fixes firefox right click issue)
+
+<hr>
+
 
 Set `accessibility.typeaheadfind.enablesound` to `false`
 
