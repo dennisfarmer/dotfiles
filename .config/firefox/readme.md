@@ -14,13 +14,23 @@ Copy `installs.ini` and `profiles.ini` to your firefox directory (`$HOME/.mozill
 
 Visit `about:config` from Firefox
 
+contents of `$HOME/.mozilla/firefox/somethings.defaults/chrome/userChrome.css`
+```
+#contentAreaContextMenu{ margin: 5px 0 0 5px }
+```
 
 Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+
 Set `accessibility.typeaheadfind.enablesound` to `false`
+
 Set `browser.tabs.insertAfterCurrent` to `true`
+
 Set `browser.sessionstore.resume_from_crash` to `false`
+
 Set `security.dialog_enable_delay` to 0
+
 Set `browser.compactmode.show` to `true`
+
 Customize Toolbar >> Density >> Compact
 
 Set `layout.css.devPixelsPerPx` to desired value
