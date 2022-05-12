@@ -8,7 +8,14 @@ Access profile folder by visiting `about:support` from Firefox
 
 Copy themes (stored in this directory's folders) to `extensions` folder
 
-Copy `userChrome.css` to `chrome` folder
+
+# `userChrome.css` Configuration:
+
+contents of `$HOME/.mozilla/firefox/somethings.defaults/chrome/userChrome.css`
+```
+#contentAreaContextMenu{ margin: 5px 0 0 5px }
+```
+
 
 Copy `installs.ini` and `profiles.ini` to your firefox directory (`$HOME/.mozilla/firefox`)
 
@@ -17,6 +24,9 @@ Visit `about:config` from Firefox
 
 Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 Set `accessibility.typeaheadfind.enablesound` to `false`
+    accessibility.typeaheadfind.manual = false
+    accessibility.typeaheadfind = false
+    accessibility.typeaheadfind.autostart = false
 Set `browser.tabs.insertAfterCurrent` to `true`
 Set `browser.sessionstore.resume_from_crash` to `false`
 Set `security.dialog_enable_delay` to 0
@@ -25,6 +35,9 @@ Customize Toolbar >> Density >> Compact
 
 Set `layout.css.devPixelsPerPx` to desired value
 (default is 1.0, x200 looks nice with ~0.8)
+
+Disable "Search for text when you start typing" within settings > Browsing
+
 
 ### Website Zoom Levels:
 

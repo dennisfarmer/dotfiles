@@ -1,0 +1,9 @@
+.kde4
+└── share
+    ├── apps
+    │   └── color-schemes
+    │       └── BreezeLight.colors
+    └── config
+        └── kdeglobals
+
+4 directories, 2 files

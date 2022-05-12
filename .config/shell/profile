@@ -1,51 +1,137 @@
 #!/bin/zsh
 
-# profile file. Runs on login. Environmental variables are set here.
+#OS="arch"
+export OS="gentoo"
 
-# If you don't plan on reverting to bash, you can remove the link in ~/.profile
-# to clean up.
+#export USERDIR="/mnt/c/Users/denni"
+#export USERDIR="/Users/dennis"
+export USERDIR="$HOME"
+export COURSEWORK="$USERDIR/coursework"
 
-# Adds `~/.local/bin` to $PATH
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
-unsetopt PROMPT_SP
 
-# Default programs:
-export EDITOR="nvim"
+if [[ "$OS" == "macos" ]]; then {
+	# Applications
+	#export PATH="/Applications:$PATH"
+	export PATH="$PATH:/Applications/Firefox.app/Contents/MacOS"
+	export PATH="/Applications/Rstudio.app/Contents/MacOS/pandoc:$PATH"
+	export PATH="/Library/TeX/texbin:$PATH"
+}
+fi
+
+# dwmblocks
+export LOCATION="ann+arbor"
 export TERMINAL="st"
-export BROWSER="brave"
 
-# ~/ Clean-up:
+
+# Spotify
+export SPOTIFY_CLIENT_ID="3c5da63320124caa8d967fa00b09ef9e"
+export SPOTIFY_CLIENT_SECRET="e8234b4ffa214835a72bf704ab33dbfa"
+
+# Ruby
+# Install Ruby Gems to ~/gems
+#export GEM_HOME="$HOME/gems"
+#export PATH="$HOME/gems/bin:$PATH"
+#export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin/:$PATH"
+#rbenv init - >/dev/null
+#export PATH="$HOME/.rbenv/shims:${PATH}"
+
+# Programming Paths
+
+# brew
+export HOMEBREW_NO_ENV_HINTS=""
+
+# Programs
+#export EDITOR="gvim -v"
+#export VISUAL="gvim -v"
+export EDITOR="nvim"
+export VISUAL="nvim"
+export PDFVIEWER="okular"
+export BROWSER="firefox"
+#export TERMINAL="st"
+
+export PULSEAUDIO_SYSTEM_START=1
+
+# Directories
+export SCRIPTS="$HOME/github/scripts"
+
+#export RPROFILE="/usr/lib/R/library/base/R/Rprofile"
+
+#export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+
+
+
+#export ZSHRC="$XDG_CONFIG_HOME/zsh/.zshrc"
+#export VIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
+#export TMUXRC="$XDG_CONFIG_HOME/tmux/tmux.conf"
+#export POLYBARRC="$XDG_CONFIG_HOME/polybar/config.ini"
+#export BSPWMRC="$XDG_CONFIG_HOME/bspwm/bspwmrc"
+#export SXHKDRC="$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+export POLYRC="$POLYBARRC"
+export BSPRC="$BSPWMRC"
+export SXRC="$SXHKDRC"
+
+#export PGSYSCONFDIR="$HOME/anaconda3/etc/postgres"
+#export PSQLRC="$PGSYSCONFDIR/psqlrc"
+#export $CONDARC="$HOME/.condarc"
+
+# Coursework
+export MTH192="/run/media/dennisfarmer/Samsung-USB/coursework/calculus"
+export MTH197="/run/media/dennisfarmer/Samsung-USB/coursework/linear_algebra"
+export CHN111="/run/media/dennisfarmer/Samsung-USB/coursework/chinese"
+export MUS140="/run/media/dennisfarmer/Samsung-USB/coursework/music_theory"
+export CPS271="/run/media/dennisfarmer/Samsung-USB/coursework/c++"
+
+
+#export QT_QPA_PLATFORMTHEME=qt5ct
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
-#export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
-export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
+
+export DOT="${USERDIR:-$HOME}/github/dotfiles"
+export DOT_CONFIG_HOME="$DOT/.config"
+export DOT_DATA_HOME="$DOT/.local/share"
+export ENV="$DOT/env"
+export ZSHRC="$DOT/zshrc"
+export VIMRC="$DOT/vimrc"
+export TMUXRC="$DOT/tmuxrc"
+export ALIASRC="$DOT_CONFIG_HOME/shell/aliasrc"
+export PROFILE="$DOT_CONFIG_HOME/shell/profile"
+export XPROFILE="$DOT_CONFIG_HOME/x11/xprofile"
+export XRESOURCES="$DOT_CONFIG_HOME/x11/xresources"
+export DWMRC="$DOT/.local/src/dwm/config.h"
+#/usr/share/awesome
+
+export PATH="$DOT/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$DOT/.local/bin/statusbar:$PATH"
+export ZDOTDIR="$HOME/.config/zsh"
+
+# ~/ Clean-up:
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
-export LESSHISTFILE="-"
-export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
-export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
-export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+#export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+#export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 #export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
 #export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
-export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
-export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
-export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
-export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
-export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
-export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
-export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
-export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
-export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
-export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
+#export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
+#export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
+#export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
+#export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+#export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
+#export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+#export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+#export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
+#export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
+#export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+#export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
+#export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
+#export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
-export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+export SUDO_ASKPASS="$DOT/.local/bin/dmenupass"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
@@ -60,6 +146,19 @@ export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
 export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
+
+# Config Redirection
+#export VIMINIT="source $HOME/.vim/vimrc"
+export VIMINIT="source $XDG_CONFIG_HOME/nvim/init.vim"
+export PYTHONSTARTUP="$DOT/.pyprofile.py"
+export RPROFILE="$DOT/.Rprofile"
+export XINITRC="${DOT_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
+
+export LOCAL_HISTORY="$XDG_CACHE_HOME/history"
+export LESSHISTFILE="$LOCAL_HISTORY/.lesshst"
+export PSQL_HISTORY="$LOCAL_HISTORY/.psql_history"
+export PYTHONHISTFILE="$LOCAL_HISTORY/.python_history"
+export HISTFILE="$LOCAL_HISTORY/.zsh_history"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
@@ -140,17 +239,18 @@ ex=🎯:\
 *.java=♨:\
 "
 
-[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
+[ ! -f ${DOT_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
-if pacman -Qs libxft-bgra >/dev/null 2>&1; then
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC" || sudo -n loadkeys ${DOT_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
+
+
+
+#if pacman -Qs libxft-bgra >/dev/null 2>&1; then
 	# Start graphical server on user's current tty if not already running.
-	[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
-else
-	echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
-Please run:
-	\033[32mparu -S libxft-bgra-git\033[0m
-and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`."
-fi
-
-# Switch escape and caps if tty and no passwd required:
-sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
+	#[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+#else
+	#echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
+#Please run:
+	#\033[32mparu -S libxft-bgra-git\033[0m
+#and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`."
+#fi

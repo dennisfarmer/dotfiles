@@ -1,21 +1,42 @@
 #!/bin/sh
 
-# A dmenu wrapper script for system functions.
+# power, q
+#button_pressed="$1"
 
-# For non-systemd init systems.
 case "$(readlink -f /sbin/init)" in
 	*runit*) hib="sudo -A zzz" ;;
 	*openrc*) reb="sudo -A openrc-shutdown -r"; shut="sudo -A openrc-shutdown -p 0" ;;
 esac
 
+pgrep -u $USER "\bawesome$" >/dev/null 2>&1 && wm="awesome" && prettywm="awesomewm" ||
+	pgrep -u $USER "\bstartplasma-x11$" >/dev/null 2>&1 && wm="startplasma-x11" && prettywm="plasma" ||
+	pgrep -u $USER "\bdwm$" >/dev/null 2>&1 && wm="dwm" && prettywm="dwm"
+
 cmds="\
+🖥 shutdown	${shut:-sudo -A shutdown -h now}
+♻ renew $prettywm	kill -HUP $(pgrep -u $USER "\b$wm$")
+🚪 leave $prettywm	kill -TERM $(pgrep -u $USER "\b$wm$")
 🔒 lock		slock
-🚪 leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
-♻ renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
 🐻 hibernate	slock ${hib:-systemctl suspend-then-hibernate -i}
 🔃 reboot	${reb:-sudo -A reboot}
-🖥 shutdown	${shut:-sudo -A shutdown -h now}
 📺 display off 	 xset dpms force off"
+
+#echo $cmds > $HOME/github/f1.txt
+
+# set shutdown as the first entry
+#if [[ "$button_pressed" == "power" ]]
+#then
+	#shutdown_index=$(($(echo $cmds | grep --line-number "shutdown" | head -n1 | awk -F: '{print $1}')))
+	#if [[ shutdown_index -gt 0 ]]
+	#then
+		#cmds=$(echo "$(echo $cmds | head -n $shutdown_index | tail -n1)
+#$(echo $cmds | head -n $(($shutdown_index-1)))
+#$(echo $cmds | tail -n $(($(echo $cmds | wc -l) - $shutdown_index)))")
+	#fi
+#fi
+
+
+#echo $cmds > $HOME/github/f2.txt
 
 choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu)" || exit 1
 

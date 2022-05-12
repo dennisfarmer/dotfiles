@@ -1,64 +1,41 @@
 set nocompatible
-" change viminfo directory
-"if !has('nvim')
-    "set viminfo+=n~/.vim/viminfo
-"endif
 
-" -----------------------------------------------
-" Plugins
-" look into using junegunn/vim-plug instead
-" of vundle
-" Install with :PluginInstall
-"   or vim +PluginInstall +qall
-" Update with :PluginUpdate
-" Clean with :PluginClean
-" Lookup help with "help [Nvim-R]
-"set rtp+=~/.vim/bundle/Vundle.vim
-filetype off
-filetype plugin on
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+    echo "Downloading junegunn/vim-plug to manage plugins..."
+    silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+    silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+    autocmd VimEnter * PlugInstall
+endif
 
-let g:vundle#bundle_dir='~/.config/nvim/bundle/'
-" Plugin Manager
-Plugin 'VundleVim/Vundle.vim'
-
-
-Plugin 'vim-airline/vim-airline'
-
-" Programming
-"Plugin 'sheerun/vim-polyglot'
-"Plugin 'preservim/nerdtree'  " run with :NERDTree
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'jalvesaq/Nvim-R'
-"Plugin 'preservim/nerdcommenter'
-"Plugin 'ap/vim-css-color'
-
-" Writing
-Plugin 'junegunn/goyo.vim'
-"Plugin 'vimwiki/vimwiki'
-
-" Color schemes
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'morhetz/gruvbox'
-"Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
-"Plugin 'altercation/vim-colors-solarized'
-"
-" Unnwanted :(
-"Plugin 'lervag/vimtex'
-"Plugin 'vimwiki/vimwiki'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-commentary'
+call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'tpope/vim-surround'
+"Plug 'jalvesaq/Nvim-R'
+Plug 'junegunn/goyo.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'sheerun/vim-polyglot'
+"Plug 'preservim/nerdtree'  " run with :NERDTree
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'preservim/nerdcommenter'
+"Plug 'ap/vim-css-color'
+"Plug 'vimwiki/vimwiki'
+"Plug 'arcticicestudio/nord-vim'
+"Plug 'morhetz/gruvbox'
+"Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'lervag/vimtex'
+"Plug 'vimwiki/vimwiki'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-commentary'
 " Vim-airline
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
-" let g:airline_theme='gruvbox'
-
-call vundle#end()
+" Plug 'vim-airline/vim-airline'
+call plug#end()
 filetype plugin indent on
 
 " Copy parts of lukesmit vimrc (init.vim)
 " Note: https://stackoverflow.com/questions/35390415/cursor-jump-in-vim-after-save
+
 
 " -----------------------------------------------
 " Visual
@@ -68,12 +45,26 @@ set encoding=utf-8
 "set number relativenumber
 set showmode
 set noswapfile
-"set backupdir=~/.vim/backup//
+
+if ! isdirectory(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/backup/"'))
+    echo "Creating backup directory..."
+    silent !mkdir -p $HOME/.config/nvim/backup
+endif
+
+if ! isdirectory(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/swap/"'))
+    echo "Creating swap directory..."
+    silent !mkdir -p $HOME/.config/nvim/swap
+endif
+
+if ! isdirectory(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/undo/"'))
+    echo "Creating undo directory..."
+    silent !mkdir -p $HOME/.config/nvim/undo
+endif
+
 set backupdir=~/.config/nvim/backup//
-"set directory=~/.vim/swap//
 set directory=~/.config/nvim/swap//
-"set undodir=~/.vim/undo//
 set undodir=~/.config/nvim/undo//
+set viminfo+=n~/.cache/history/viminfo
 set history=1000
 set autoread
 set go=a
@@ -113,9 +104,26 @@ hi Normal guibg=NONE ctermbg=NONE
 " -----------------------------------------------
 " Powerline
 
-set rtp+=$HOME/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim/
 "set laststatus=2
 set t_Co=256
+
+" -----------------------------------------------
+" Airline Configuration
+
+" see airline-predefined-parts
+" see help statusline
+let g:airline_section_x = airline#section#create(['filetype'])
+let g:airline_section_y = airline#section#create(['ffenc'])
+let g:airline_section_z = '%c-%l/%L'
+let g:airline_section_gutter = '%=TIMBUK2 -'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#vimtex#enabled = 1
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#vimtex#left = "{"
+"let g:airline#extensions#vimtex#right = "}"
+" look into airline-tmuxline
 
 " -----------------------------------------------
 " Search
@@ -124,9 +132,13 @@ set ignorecase
 set nohlsearch
 "set hlsearch
 "nnoremap <CR> :noh<CR><CR>
-"let mapleader="\<Space>"
-let mapleader=","
+let mapleader="\<Space>"
+"let mapleader=","
 set lazyredraw
+
+" -----------------------------------------------
+" Search and Replace
+" I to mark case sensitive
 
 " -----------------------------------------------
 " Tabs
@@ -142,7 +154,10 @@ set shiftround
 " ctrl+v <tab> to insert actual \t character
 " set noexpandtab
 set smarttab
-set expandtab
+" set expandtab
+
+set list
+set listchars=tab:\|␉
 
 " color column
 " set colorcolumn=80
@@ -168,6 +183,14 @@ let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
 " -----------------------------------------------
+" Disable ex mode
+
+" :<C-f>
+map q: <NOP>
+" ex
+nnoremap Q <NOP>
+
+" -----------------------------------------------
 "  Splits
 
 " sp / vsp [FILENAME]
@@ -178,6 +201,13 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" -----------------------------------------------
+" Convienient Shortcuts
+
+map <C-p> :!chmod u+x %; "%:p"<CR>
+"map <C-w> :set wrap!<CR>
+" Shift+k to find man entry of current word
 
 " -----------------------------------------------
 "  NERDTree and Term open
@@ -267,9 +297,11 @@ filetype indent on
 filetype plugin on
 "autocmd FileType python,r,rmd set breakindentopt=shift:4
 
+" Spell check
+" :set spell and :set nospell to toggle spellcheck on and off
+" ]s and s[ to move back and forth misspelled words
+" z= to correct current word
 
-map <C-p> :!chmod u+x %; "%:p"<CR>
-map <C-k> :set wrap!<CR>
 "
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

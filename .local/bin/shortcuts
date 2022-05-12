@@ -1,12 +1,12 @@
 #!/bin/sh
 
-bmdirs="${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs"
-bmfiles="${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files"
+bmdirs="${DOT_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs"
+bmfiles="${DOT_CONFIG_HOME:-$HOME/.config}/shell/bm-files"
 
 # Output locations. Unactivated progs should go to /dev/null.
-shell_shortcuts="${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
-zsh_named_dirs="${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
-lf_shortcuts="${XDG_CONFIG_HOME:-$HOME/.config}/lf/shortcutrc"
+shell_shortcuts="${DOT_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
+zsh_named_dirs="${DOT_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+lf_shortcuts="${DOT_CONFIG_HOME:-$HOME/.config}/lf/shortcutrc"
 ranger_shortcuts="/dev/null"
 qute_shortcuts="/dev/null"
 fish_shortcuts="/dev/null"

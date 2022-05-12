@@ -2,8 +2,6 @@
 TERM=xterm-256color
 #export LANG=en_US.UTF-8
 export LS_COLORS=$LS_COLORS:'ow=1;34:';
-export HISTFILE=$HOME/.config/zsh/.zsh_history
-
 
 # LUKE SMITH SHELL PROMPT
 #autoload -U colors && colors	# Load colors
@@ -12,12 +10,19 @@ export HISTFILE=$HOME/.config/zsh/.zsh_history
 #stty stop undef		# Disable ctrl-s to freeze terminal.
 #setopt interactive_comments
 
-alias R="R --no-save"
-# History in cache directory:
+setopt autocd  # auto cd into typed directories
+
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE=~/.cache/zsh/history
+if [[ -z "$HISTFILE" ]]; then
+    HISTFILE="$HOME/.cache/history/.zsh_history"
+fi
 
+if ! [[ -f "$HISTFILE" ]]; then
+    echo "Creating zsh history file..."
+    mkdir -p "${LOCAL_HISTORY:-$HOME/.cache/history}"
+    touch $HISTFILE
+fi
 
 #alias bundle_env="$HOME/.rbenv/shims/
 
@@ -27,16 +32,24 @@ HISTFILE=~/.cache/zsh/history
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.config/zsh/oh-my-zsh"
 ZSH_THEME="cypher"
-#ZSH_THEME=""
+ZSH_CUSTOM="$ZSH/custom"
 
+if ! [[ -d "$ZSH_CUSTOM/plugins/zsh-history-substring-search" ]]
+then
+    git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
+fi
 
-setopt autocd  # auto cd into typed directories
+if ! [[ -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]]
+then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+fi
 
-# Prompt config:
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+if ! [[ -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]]
+then
+    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+fi
 
 plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
@@ -117,10 +130,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 # alias base='conda activate; HOST=$(hostname); clear'
 
 #----------------------------------------------------------------------------------------------
-# History
-HISTSIZE=10000000
-SAVEHIST=10000000
-HISTFILE=~/.cache/zsh/history
+
 
 
 # Disable Ctrl-S freeze, Ctrl-Q unfreeze

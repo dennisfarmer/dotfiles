@@ -3,11 +3,13 @@
 # Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
+# sdiff for side-by-side diff
+
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount umount sv pacman updatedb su ; do
+for command in mount umount sv pacman emerge poweroff updatedb su ; do
 	alias $command="sudo $command"
 done; unset command
 
@@ -23,24 +25,36 @@ fi
 alias \
     grep="grep --color=auto" \
     mkdir='mkdir -pv' \
-    wget='wget --no-hsts'
+    wget='wget --no-hsts' \
+	info='info --vi-keys' \
 	diff="diff --color=auto --side-by-side" \
 	diffs="diff --color=auto --side-by-side --suppress-common-lines" \
-    view="$EDITOR -R"
+    view="$EDITOR -R" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	bc="bc -ql" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
+	ytv="yt -f bestvideo+bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner"
+
+alias wcc="nmcli device wifi rescan && nmcli device wifi connect wccnet"
+alias R="R --no-save"
+alias python="python3"
+alias ntp="sudo ntpdate -b -u 0.gentoo.pool.ntp.org"
+alias cdkernel="cd /usr/src/linux"
+# Mount MTP device:
+alias mountmtp="sudo /usr/bin/mtpfs" # <mountpoint>
+# Unmount MTP device
+alias umountmtp="sudo /usr/bin/fusermount -u" # <mountpoint>
 
 # Programming
 alias \
     jpn="jupyter lab --no-browser" \
     saml="source activate machine_learning"
 
-alias bat="cat /sys/class/power_supply/BAT0/capacity"
+#alias bat="cat /sys/class/power_supply/BAT0/capacity"
 # ssh/onedrive/wsl
 # alias sshpi='ssh pi@192.168.1.246'
 # alias ods='onedrive --synchronize'
@@ -49,7 +63,6 @@ alias cdwin='cd /mnt/c/Users/denni'
 
 # Washtenaw Community College USB Drive Shortcuts
 alias \
-    wcc="cd $COURSEWORK" \
     cps="cd $COURSEWORK/cps272" \
     mp="cd $COURSEWORK/cps272/00\ -\ Machine\ Problems" \
     phy="cd $COURSEWORK/phy*" \
@@ -60,6 +73,7 @@ alias \
     mth160="cd $COURSEWORK/MTH160" \
     coverl="cd $COURSEWORK/internships/cover\ letter/Awesome-CV/examples" \
     cv="cd $COURSEWORK/umich_summer_institute/cv"
+    #wcc="cd $COURSEWORK" \
 
 # Bindings for obscure stuff
 alias \
@@ -101,6 +115,5 @@ alias \
 alias \
     tmux="tmux -f $TMUXRC" \
     tks="tmux kill-server" \
-    hotspot="nmcli device wifi rescan; nmcli device wifi connect dissociation-rectangle password securepassword" \
+    hotspot="nmcli device wifi rescan && nmcli device wifi connect dissociation-rectangle password securepassword" \
     wifipasswd="nmcli device wifi show-password"
-

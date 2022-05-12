@@ -1,0 +1,9 @@
+[autodisable]
+DisableWhenMousePluggedIn=true
+
+[parameters]
+CircScrollDelta=5.73
+HorizScrollDelta=1.9
+MaxTapMove=2.5
+Tapping=false
+VertScrollDelta=1.4

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# https://lukesmith.xyz/articles/programs-and-equipment-i-use
+filetype="${1##*.}"
+
+case $filetype in
+	pdf) zathura "$1" ${@:2} & ;;
+	png|jpeg|jpg|bmp|gif|webp) sxiv "$1" ${@:2} ;;
+	mp4|mkv) mpv "$1" ${@:2} ;;
+	mp3|opus|flac|wav) mpv "$1" ${@:2} ;;
+	txt|rmd|Rmd|md|tex) vim "$1" ${@:2} ;;
+	*) echo "filetype unknown" ;;
+esac
