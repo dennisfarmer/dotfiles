@@ -19,18 +19,41 @@ contents of `$HOME/.mozilla/firefox/somethings.defaults/chrome/userChrome.css`
 
 Copy `installs.ini` and `profiles.ini` to your firefox directory (`$HOME/.mozilla/firefox`)
 
+
+
+# `userChrome.css` Configuration:
+
+contents of `$HOME/.mozilla/firefox/somethings.defaults/chrome/userChrome.css`
+```
+#contentAreaContextMenu{ margin: 5px 0 0 5px }
+```
+Visit `about:config` from Firefox
+Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+
+(fixes firefox right click issue)
+
+<hr>
+
+### My config
+
 Visit `about:config` from Firefox
 
-
-Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 Set `accessibility.typeaheadfind.enablesound` to `false`
+<<<<<<< HEAD
     accessibility.typeaheadfind.manual = false
     accessibility.typeaheadfind = false
     accessibility.typeaheadfind.autostart = false
+=======
+
+>>>>>>> ad1c3c348725b4269df7f9fcdf4ab4f14f57630b
 Set `browser.tabs.insertAfterCurrent` to `true`
+
 Set `browser.sessionstore.resume_from_crash` to `false`
+
 Set `security.dialog_enable_delay` to 0
+
 Set `browser.compactmode.show` to `true`
+
 Customize Toolbar >> Density >> Compact
 
 Set `layout.css.devPixelsPerPx` to desired value
