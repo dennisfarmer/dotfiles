@@ -1,7 +1,26 @@
 #!/bin/zsh
 
 #OS="arch"
-export OS="gentoo"
+#export OS="gentoo"
+export OS="artix"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export DOT="${USERDIR:-$HOME}/github/dotfiles"
+export DOT_CONFIG_HOME="$DOT/.config"
+export DOT_DATA_HOME="$DOT/.local/share"
+export ENV="$DOT/env"
+export ZSHRC="$DOT/zshrc"
+export VIMRC="$DOT/vimrc"
+export TMUXRC="$DOT/tmuxrc"
+export SXHKDRC="$DOT/sxhkdrc"
+export ALIASRC="$DOT_CONFIG_HOME/shell/aliasrc"
+export PROFILE="$DOT_CONFIG_HOME/shell/profile"
+export XPROFILE="$DOT_CONFIG_HOME/x11/xprofile"
+export XRESOURCES="$DOT_CONFIG_HOME/x11/xresources"
+export DWMRC="$DOT/.local/src/dwm/config.h"
 
 #export USERDIR="/mnt/c/Users/denni"
 #export USERDIR="/Users/dennis"
@@ -86,22 +105,6 @@ export CPS271="/run/media/dennisfarmer/Samsung-USB/coursework/c++"
 
 #export QT_QPA_PLATFORMTHEME=qt5ct
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-
-export DOT="${USERDIR:-$HOME}/github/dotfiles"
-export DOT_CONFIG_HOME="$DOT/.config"
-export DOT_DATA_HOME="$DOT/.local/share"
-export ENV="$DOT/env"
-export ZSHRC="$DOT/zshrc"
-export VIMRC="$DOT/vimrc"
-export TMUXRC="$DOT/tmuxrc"
-export ALIASRC="$DOT_CONFIG_HOME/shell/aliasrc"
-export PROFILE="$DOT_CONFIG_HOME/shell/profile"
-export XPROFILE="$DOT_CONFIG_HOME/x11/xprofile"
-export XRESOURCES="$DOT_CONFIG_HOME/x11/xresources"
-export DWMRC="$DOT/.local/src/dwm/config.h"
 #/usr/share/awesome
 
 export PATH="$DOT/.local/bin:$PATH"

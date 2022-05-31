@@ -1,0 +1,44 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	st -g=100x40
+
+super + shift + Return
+	tmux ls | grep scratch | grep attached && {tmux detach -s scratch} || {st -g=100x40 -e zsh -c 'tmux new-session -A -s scratch;'}
+
+# program launcher
+super + d
+	dmenu_run
+
+# make sxhkd reload its configuration files:
+super + Escape
+	notify-send --urgency=low "restarting sxhkd" & pkill -x sxhkd >/dev/null 2>&1 && sxhkd & >/dev/null 2>&1
+
+#
+#screenshot
+#
+
+#super + e
+	#thunar
+
+Print
+	maim /home/dennisfj/pictures/screenshots/pic-full-$(date '+%Y-%m-%d_%H%M-%S').png & notify-send --urgency=low "📷 screenshot saved"
+
+super + shift + q
+	sysact
+
+super + grave
+	dmenuunicode
+
+
+
+
+#{ MODKEY,			XK_F9,		spawn,		SHCMD("dmenumount") },
+#{ MODKEY,			XK_F10,		spawn,		SHCMD("dmenuumount") },
+	#{ MODKEY,			XK_Print,	spawn,		SHCMD("dmenurecord") },
+	#{ MODKEY|ShiftMask,		XK_Print,	spawn,		SHCMD("dmenurecord kill") },
+	#{ MODKEY,			XK_Delete,	spawn,		SHCMD("dmenurecord kill") },
+	#{ MODKEY,			XK_Scroll_Lock,	spawn,		SHCMD("killall screenkey || screenkey &") },

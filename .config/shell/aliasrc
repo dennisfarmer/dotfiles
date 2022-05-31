@@ -9,7 +9,7 @@
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount umount sv pacman emerge poweroff updatedb su gparted ; do
+for command in mount umount sv pacman emerge poweroff reboot updatedb su gparted rc-service rc-update ; do
 	alias $command="sudo $command"
 done; unset command
 
@@ -40,7 +40,8 @@ alias \
 	ffmpeg="ffmpeg -hide_banner"
 
 alias wcc="nmcli device wifi rescan && nmcli device wifi connect wccnet"
-alias R="R --no-save"
+#alias R="R --no-save"
+#alias rscript="R CMD BATCH"  # different from Rscript
 alias python="python3"
 alias ntp="sudo ntpdate -b -u 0.gentoo.pool.ntp.org"
 alias cdkernel="cd /usr/src/linux"
@@ -116,4 +117,5 @@ alias \
     tmux="tmux -f $TMUXRC" \
     tks="tmux kill-server" \
     hotspot="nmcli device wifi rescan && nmcli device wifi connect dissociation-rectangle password securepassword" \
+    panera="nmcli device wifi rescan && nmcli device wifi connect PANERA" \
     wifipasswd="nmcli device wifi show-password"

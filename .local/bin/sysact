@@ -5,21 +5,25 @@
 
 case "$(readlink -f /sbin/init)" in
 	*runit*) hib="sudo -A zzz" ;;
-	*openrc*) reb="sudo -A openrc-shutdown -r"; shut="sudo -A openrc-shutdown -p 0" ;;
+	*openrc*) reb="sudo -A openrc-shutdown -r 0"; shut="sudo -A openrc-shutdown -p 0" ;;
 esac
 
 pgrep -u $USER "\bawesome$" >/dev/null 2>&1 && wm="awesome" && prettywm="awesomewm" ||
 	pgrep -u $USER "\bstartplasma-x11$" >/dev/null 2>&1 && wm="startplasma-x11" && prettywm="plasma" ||
 	pgrep -u $USER "\bdwm$" >/dev/null 2>&1 && wm="dwm" && prettywm="dwm"
+	#pgrep -u $USER "\bxfce4-session$" >/dev/null 2>&1 && wm="xfwm" && prettywm="xfce"
+
+
 
 cmds="\
 🖥 shutdown	${shut:-sudo -A shutdown -h now}
-♻ renew $prettywm	kill -HUP $(pgrep -u $USER "\b$wm$")
-🚪 leave $prettywm	kill -TERM $(pgrep -u $USER "\b$wm$")
 🔒 lock		slock
 🐻 hibernate	slock ${hib:-systemctl suspend-then-hibernate -i}
 🔃 reboot	${reb:-sudo -A reboot}
 📺 display off 	 xset dpms force off"
+
+#♻ renew $prettywm	kill -HUP $(pgrep -u $USER "\b$wm$")
+#🚪 leave $prettywm	kill -TERM $(pgrep -u $USER "\b$wm$")
 
 #echo $cmds > $HOME/github/f1.txt
 

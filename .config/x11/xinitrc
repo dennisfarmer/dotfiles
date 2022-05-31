@@ -8,13 +8,11 @@
 # (login screen) and so they are needed there. To prevent doubling up commands,
 # I source them here with the line below.
 
-if [ -f "${DOT_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
-	. "${DOT_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
-else
-	. "$HOME/.xprofile"
-fi
+[[ -f "${DOT_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]] && . "${DOT_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+[[ -f "$HOME/.xprofile" ]] && . "$HOME/.xprofile"
 
 #ssh-agent
 #awesome
 #startplasma-x11
-dwm
+#dwm
+startxfce4

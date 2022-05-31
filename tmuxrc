@@ -38,6 +38,10 @@ setw -g mode-keys vi
 # Search backward              ?
 # Search forward               /
 
+# M = Meta = Alt
+#M-1 to M-5  Arrange panes in one of the five preset layouts: even-horizontal, even-vertical, main-horizontal, main-vertical, or tiled.
+
+
 # Vim-like pane nav
 bind h select-pane -L
 bind j select-pane -D

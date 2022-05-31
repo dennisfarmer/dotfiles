@@ -2,6 +2,7 @@
 TERM=xterm-256color
 #export LANG=en_US.UTF-8
 export LS_COLORS=$LS_COLORS:'ow=1;34:';
+export LC_ALL=en_US.UTF-8
 
 # LUKE SMITH SHELL PROMPT
 #autoload -U colors && colors	# Load colors

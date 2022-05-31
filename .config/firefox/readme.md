@@ -38,14 +38,14 @@ Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 
 Visit `about:config` from Firefox
 
-Set `accessibility.typeaheadfind.enablesound` to `false`
-<<<<<<< HEAD
-    accessibility.typeaheadfind.manual = false
-    accessibility.typeaheadfind = false
-    accessibility.typeaheadfind.autostart = false
-=======
+accessibility.typeaheadfind.enablesound = false
 
->>>>>>> ad1c3c348725b4269df7f9fcdf4ab4f14f57630b
+accessibility.typeaheadfind.manual = true
+
+accessibility.typeaheadfind = false
+
+accessibility.typeaheadfind.autostart = false
+
 Set `browser.tabs.insertAfterCurrent` to `true`
 
 Set `browser.sessionstore.resume_from_crash` to `false`

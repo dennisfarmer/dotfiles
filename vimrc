@@ -13,6 +13,19 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/goyo.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" R plugins
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'ncm2/ncm2'
+Plug 'gaalcaras/ncm-R'
+Plug 'sirver/UltiSnips'
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'chrisbra/csv.vim'
+
+" Optional: better Rnoweb support (LaTeX completion)
+"Plug 'lervag/vimtex'
+
+
 "Plug 'sheerun/vim-polyglot'
 "Plug 'preservim/nerdtree'  " run with :NERDTree
 "Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -33,9 +46,176 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 filetype plugin indent on
 
-" Copy parts of lukesmit vimrc (init.vim)
 " Note: https://stackoverflow.com/questions/35390415/cursor-jump-in-vim-after-save
 
+
+
+" -----------------------------------------------
+"  R: ~/.vim/ftplugin/r.vim
+
+" Object Browser
+" \ro
+
+
+" remapping the basic :: send line
+"nmap , <Plug>RDSendLine
+" remapping selection :: send multiple lines
+"vmap , <Plug>RDSendSelection
+" remapping selection :: send multiple lines + echo lines
+"vmap ,e <Plug>RESendSelection
+"help key-notation
+"nmap <C-Bslash> <Plug>RSendFile
+
+
+
+"nmap <C-Bslash> <Plug>RDSendLine
+"vmap <C-Bslash> <Plug>REDSendSelection
+
+
+" look in to using snippets
+" find easy sub for %in% word
+
+autocmd FileType r inoremap <buffer> > <ESC>:normal! a%>%<CR>a
+autocmd FileType rmd inoremap <buffer> > <ESC>:normal! a%>%<CR>a
+
+"autocmd FileType r inoremap <buffer> >> <ESC>:normal! a%>%<CR>a
+
+"autocmd FileType r inoremap <buffer> < <ESC>:normal! a<-<CR>a
+
+"autocmd FileType r inoremap <buffer> << <ESC>:normal! a<<<CR>a
+"tnoremap > <SPACE>%>%
+
+
+
+
+" rbinds
+
+" see 4.1. Key bindings
+
+" \rl: runs ls()
+" \rh help (gives option to select if function/etc. exists in more
+"               than one library, very cool!)
+" \re example
+" \rv view dataframe (with csv.vim viewer)
+" \o render output of current line as comments underneath (inline)
+" \rs summary()
+" \rg plot()
+" \ra args()
+" \rd setwd()
+" \rp print()
+" \rn names()
+" \ao runs R CMD BATCH --no-restore --no-save, then opens .Rout file in new tab
+" to open in new split window instead: let R_routnotab = 1
+" \xx toggle comment
+" \pp sends current paragraph (chunk not broken by empty line)
+" \ae sends entire file
+" \rv View data.frame in new tab
+" Ctrl-X Ctrl-o complete object name
+
+
+" figure out how functions with EOF python pipes work lol
+"source $SCRIPTS/vim/Rbinds.vim
+
+
+"filter groupby summarize
+
+" see Nvim-R-quick-setup
+" <LocalLeader> is '\' by default
+
+" help page 6.1. Start R automatically (still reading)
+" help nvim-r
+
+let R_nvim_wd = 0
+" use visidata to view data.frames and matrices
+" can also use LibreOffice Calc or equivalent, let ... = 'localc' (name of prog, can use direct path too)
+"let R_csv_app = 'terminal:vd'
+"let R_csv_app = 'terminal:tablign'
+"let R_csv_app = 'moderncsv'
+let R_csv_delim = '\t'
+let g:csv_delim='\t'
+let g:csv_default_delim='\t'
+
+
+"There is also the option of configuring Nvim-R to run an R command to
+"display the data. Examples:
+"let R_df_viewer = "relimp::showData(%s, font = 'Courier 14')"
+"let R_df_viewer = "View(head(%s, n=100), title = deparse(substitute(%s)))"
+let R_df_viewer = "View(head(%s, n=100))"
+
+"The value of R_df_viewer is a string and the substring `%s` is replaced by the
+"name of the object under the cursor.
+
+" tmux (results in encoding errors)
+"let R_source = "/home/dennisfj/.config/nvim/plugged/Nvim-R/R/tmux_split.vim"
+let R_assign = 0
+"let R_notmuxconf = 1
+
+"let R_auto_start = 1
+" let R_objbr_auto_start = 1
+let R_commented_lines = 1
+let R_openpdf = "okular"
+let R_openhtml = "firefox"
+let R_args = ['--no-save', '--quiet']
+let Rout_more_colors = 1
+let R_rcomment_string = '# '
+let R_indent_commented = 0
+let R_listmethods = 1
+"let R_clear_console = 0
+
+"If you want to press <C-Enter> to send lines to R, see:
+"https://github.com/jalvesaq/Nvim-R/issues/64
+
+autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
+
+" Use Ctrl+Space to do omni completion:
+"if has('nvim') || has('gui_running')
+	"inoremap <C-Space> <C-x><C-o>
+"else
+	"inoremap <Nul> <C-x><C-o>
+"endif
+
+" Press the space bar to send lines and selection to R:
+"vmap <Space> <Plug>RDSendSelection
+vmap <Space> <Plug>REDSendSelection
+nmap <Space> <Plug>RDSendLine
+
+
+"If you want to run RStudio instead of R set in your |vimrc| the value of
+"`RStudio_cmd` to the complete path of the RStudio_cmd binary. Example:
+">
+   "let R_external_term = 1
+   "let RStudio_cmd = 'C:\Program Files\RStudio\bin\rstudio'
+"<
+"Note: You must manually run a successful comand in RStudio Console before
+"sending code from Vim to RStudio. The command might be something as simple as
+"the number `1`.
+
+" for omni completion
+"let R_start_libs = 'base,stats,graphics,grDevices,utils,methods'
+
+"let R_in_buffer = 0
+
+let R_auto_start = 1
+" let R_auto_start = 2
+" let R_path = '/usr/bin/R'  <- might be different
+" let Rout_more_colors = 1
+" let R_nvim_wd = 1
+" let R_external_term = 1
+
+"View function args in the statusline, very useful if you don't want to use the args autocomplete (<C-X><C-A>)
+"let R_args_in_stline = 1
+" no longer exists
+
+" Auto-start autocompletion inside data frames
+autocmd filetype r inoremap $ $<C-X><C-O>
+
+" for vim-pandoc
+" (also look into vim-pandoc-syntax)
+" syntastic for code linting
+" YouCompleteMe for autocompletion
+"let g:pandoc#filetypes#handled = ["rmarkdown"]
+"let g:pandoc#modules#enabled = ["folding", "bibliographies", "completion", "toc"]
+"let g:pandoc#biblio#use_bibtool = 1
 
 " -----------------------------------------------
 " Visual
@@ -143,6 +323,8 @@ set lazyredraw
 " -----------------------------------------------
 " Tabs
 
+"TODO set width for R to 2, everything else to 3 or 4 (was originally 4)
+
 set autoindent
 set tabstop=4
 set softtabstop=4
@@ -151,13 +333,21 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 
+autocmd FileType r,rmd set tabstop=2
+autocmd FileType r,rmd set softtabstop=2
+autocmd FileType r,rmd set shiftwidth=2
+
 " ctrl+v <tab> to insert actual \t character
 " set noexpandtab
-set smarttab
-" set expandtab
-
+set expandtab
 set list
-set listchars=tab:\|␉
+set listchars=tab:\|-
+
+" to enable tabs
+" set noexpandtab
+" set smarttab
+" set list
+" set listchars=tab:\|␉
 
 " color column
 " set colorcolumn=80
@@ -203,6 +393,16 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " -----------------------------------------------
+"  Tabs
+
+map <leader>tn :tabnew<CR>
+map <leader>tl :tabnext<CR>
+map <leader>th :tabprevious<CR>
+"map <leader>tm :tabmove
+map <leader>tq :tabclose<CR>
+map <leader>to :tabonly<CR>
+
+" -----------------------------------------------
 " Convienient Shortcuts
 
 map <C-p> :!chmod u+x %; "%:p"<CR>
@@ -231,66 +431,6 @@ if executable("xclip")
 endif
 
 " -----------------------------------------------
-"  Goyo
-
-" ENTER GOYO
-function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set -g status off
-    silent !tmux resize-pane -Z
-    "silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  let b:quitting = 0
-  let b:quitting_bang = 0
-  autocmd QuitPre <buffer> let b:quitting = 1
-  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-
-" EXIT GOYO
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set -g status on
-    silent !tmux resize-pane -Z
-    "silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  endif
-  set showmode
-  set showcmd
-  set scrolloff=16
-  hi Normal guibg=NONE ctermbg=NONE
-  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-	  if b:quitting_bang
-		  qa!
-	  else
-		  qa
-	  endif
-  endif
-endfunction
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-" Map movement keys for wrapped lines
-noremap <silent> k gk
-noremap <silent> j gj
-onoremap <silent> j j
-onoremap <silent> k k
-
-" Toggle Goyo
-" autocmd FileType markdown,text,latex,plaintex
-nnoremap <buffer> <Leader>g :Goyo<CR>
-
-
-let g:goyo_width = 106
-" g:goyo_height 85
-" g:goyo_linenr 0
-" g:goyo_margin_top 4
-" g:goyo_margin_bottom 4
-
-" -----------------------------------------------
-" -----------------------------------------------
-"  PROGRAMMING
 
 " :help key-notation
 filetype indent on
@@ -354,27 +494,63 @@ function! ToggleHiddenAll()
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
-
-
-
-
-
-
-
-
-
-
 " -----------------------------------------------
-"  R: ~/.vim/ftplugin/r.vim
+"  Goyo
 
-" help page 6.1. Start R automatically (still reading)
-" let R_rcomment+string = '# '
-" let R_auto_start = 2
-" let R_path = '/usr/bin/R'  <- might be different
-" let R_args = ['--no-save']
-" let Rout_more_colors = 1
-" let R_nvim_wd = 1
-" let R_external_term = 1
+" ENTER GOYO
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set -g status off
+    silent !tmux resize-pane -Z
+    "silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+
+" EXIT GOYO
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set -g status on
+    silent !tmux resize-pane -Z
+    "silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=16
+  hi Normal guibg=NONE ctermbg=NONE
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+	  if b:quitting_bang
+		  qa!
+	  else
+		  qa
+	  endif
+  endif
+endfunction
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" Map movement keys for wrapped lines
+noremap <silent> k gk
+noremap <silent> j gj
+onoremap <silent> j j
+onoremap <silent> k k
+
+" Toggle Goyo
+" autocmd FileType markdown,text,latex,plaintex
+nnoremap <buffer> <Leader>g :Goyo<CR>
+
+
+let g:goyo_width = 106
+" g:goyo_height 85
+" g:goyo_linenr 0
+" g:goyo_margin_top 4
+" g:goyo_margin_bottom 4
 
 " -----------------------------------------------
 " LaTeX
@@ -392,3 +568,14 @@ nnoremap <leader>h :call ToggleHiddenAll()<CR>
 " command W w !sudo tee % > /dev/null
 " :W sudo saves files
 map <C-n> :NERDTreeToggle<CR>
+nnoremap zw :update<CR>
+nnoremap zq :q<CR>
+"nnoremap zq :update<BAR>q<CR>
+
+
+
+" autocmd FileType r nnoremap zr <ESC>O```{r}<ESC>}i```<ESC>
+
+
+
+autocmd FileType r inoremap <buffer> > <ESC>:normal! a%>%<CR>a
