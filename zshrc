@@ -4,14 +4,6 @@ TERM=xterm-256color
 export LS_COLORS=$LS_COLORS:'ow=1;34:';
 export LC_ALL=en_US.UTF-8
 
-# LUKE SMITH SHELL PROMPT
-#autoload -U colors && colors	# Load colors
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-#setopt autocd		# Automatically cd into typed directory.
-#stty stop undef		# Disable ctrl-s to freeze terminal.
-#setopt interactive_comments
-
-setopt autocd  # auto cd into typed directories
 
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -35,6 +27,7 @@ fi
 
 export ZSH="$HOME/.config/zsh/oh-my-zsh"
 ZSH_THEME="cypher"
+#ZSH_THEME="michigan"
 ZSH_CUSTOM="$ZSH/custom"
 
 if ! [[ -d "$ZSH_CUSTOM/plugins/zsh-history-substring-search" ]]
@@ -58,6 +51,16 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v
 export KEYTIMEOUT=1
+
+# LUKE SMITH SHELL PROMPT
+autoload -U colors && colors	# Load colors
+
+
+
+
+setopt autocd		# Automatically cd into typed directory.
+stty stop undef		# Disable ctrl-s to freeze terminal.
+setopt interactive_comments
 
 # Auto complete with <tab>
 autoload -U compinit

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+PLOTROOT="$HOME/maerz"
+PLOTDIR="$(cat $DOT_DATA_HOME/plotdir || echo $PLOTROOT)"
+
+# todo: doesn't support paths with spaces lmao
+#PLOTDIR="$(echo $PLOTDIR | sed "s/\s/\\\ /g")"  # <- doesn't work
+# find . -regex ".*\s.*"
+
+P=$( (basename -a $(ls $PLOTDIR/*.pdf); echo "Change Plot Directory") | cat - | dmenu -i -p "Open which plot? $PLOTDIR/" )
+
+[ -z "$P" ] && exit
+
+case $P in
+    "Change Plot Directory")
+        PLOTDIR=$( (echo "."; echo "$( find $PLOTROOT -type d | sed "/.*.Rproj.*/d" | sed "/.*linkedin.*/d" | sed "/.*\.git.*/d" | cut -d"/" -f5- | tail -n+2)") | cat - | dmenu -p "Which directory?" )
+        [ -z "$PLOTDIR" ] && exit
+        [[ $PLOTDIR == "." ]] && PLOTDIR="$PLOTROOT" || PLOTDIR="$PLOTROOT/$PLOTDIR"
+        echo $PLOTDIR > $DOT_DATA_HOME/plotdir
+        notify-send "'$PLOTDIR'" "set as plot directory." &
+        ;;
+    *.pdf)
+        ${PDFVIEWER:-okular} "$PLOTDIR/$P" &
+        ;;
+esac

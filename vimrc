@@ -22,8 +22,11 @@ Plug 'sirver/UltiSnips'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'chrisbra/csv.vim'
 
+" MATLAB plugin
+"Plug 'daeyun/vim-matlab'
+
 " Optional: better Rnoweb support (LaTeX completion)
-"Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'
 
 
 "Plug 'sheerun/vim-polyglot'
@@ -88,6 +91,11 @@ autocmd FileType rmd inoremap <buffer> > <ESC>:normal! a%>%<CR>a
 
 
 
+" -----------------------------------------------
+" NVIM-R
+
+nnoremap <buffer> <Leader>t :term matlab -nodesktop<CR>
+
 " rbinds
 
 " see 4.1. Key bindings
@@ -111,6 +119,9 @@ autocmd FileType rmd inoremap <buffer> > <ESC>:normal! a%>%<CR>a
 " \ae sends entire file
 " \rv View data.frame in new tab
 " Ctrl-X Ctrl-o complete object name
+
+" \ch Run Chunks (from first to curr)
+" \ca run chunk (cur, echo, down)
 
 
 " figure out how functions with EOF python pipes work lol
@@ -218,11 +229,18 @@ autocmd filetype r inoremap $ $<C-X><C-O>
 "let g:pandoc#biblio#use_bibtool = 1
 
 " -----------------------------------------------
+" MATLAB-VIM
+" term matlab -nodesktop
+
+
+
+" -----------------------------------------------
 " Visual
 
 syntax enable
 set encoding=utf-8
 "set number relativenumber
+set number
 set showmode
 set noswapfile
 
@@ -245,6 +263,8 @@ set backupdir=~/.config/nvim/backup//
 set directory=~/.config/nvim/swap//
 set undodir=~/.config/nvim/undo//
 set viminfo+=n~/.cache/history/viminfo
+set shada+=n~/.cache/history/viminfo
+" set viminfo shada=!,'100,<50,s10,h
 set history=1000
 set autoread
 set go=a
@@ -294,7 +314,7 @@ set t_Co=256
 " see help statusline
 let g:airline_section_x = airline#section#create(['filetype'])
 let g:airline_section_y = airline#section#create(['ffenc'])
-let g:airline_section_z = '%c-%l/%L'
+let g:airline_section_z = '%l-%c/%L'
 let g:airline_section_gutter = '%=TIMBUK2 -'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#vimtex#enabled = 1
@@ -325,7 +345,7 @@ set lazyredraw
 
 "TODO set width for R to 2, everything else to 3 or 4 (was originally 4)
 
-set autoindent
+set ai
 set tabstop=4
 set softtabstop=4
 
@@ -350,9 +370,16 @@ set listchars=tab:\|-
 " set listchars=tab:\|␉
 
 " color column
-" set colorcolumn=80
+" set colorcolumn=86
+" highlight ColorColumn ctermbg=darkgray
+" match ErrorMsg '\%>85v.\+'
 " highlight ColorColumn ctermbg=darkgray
 " highlight ColorColumn ctermbg=darkgray
+
+" -----------------------------------------------
+"  Comments
+
+highlight Comment ctermfg=green
 
 " -----------------------------------------------
 "  Cursor
@@ -405,7 +432,7 @@ map <leader>to :tabonly<CR>
 " -----------------------------------------------
 " Convienient Shortcuts
 
-map <C-p> :!chmod u+x %; "%:p"<CR>
+"map <C-p> :!chmod u+x %; "%:p"<CR>
 "map <C-w> :set wrap!<CR>
 " Shift+k to find man entry of current word
 
@@ -421,9 +448,9 @@ map <F2> :belowright terminal<CR>
 set clipboard+=unnamedplus
 
 " Copy and paste to/from system register
-vnoremap <C-c> "+y
-inoremap <C-v> <C-r>+
-map <C-v> "+P
+"vnoremap <C-c> "+y
+"inoremap <C-v> <C-r>+
+"map <C-v> "+P
 
 " Keep clipboard on exit
 if executable("xclip")
@@ -441,6 +468,9 @@ filetype plugin on
 " :set spell and :set nospell to toggle spellcheck on and off
 " ]s and s[ to move back and forth misspelled words
 " z= to correct current word
+setlocal spell
+# Ctrl+L corrects previous spelling mistake
+inoremap <C-l> <c-g>u<Esc>[s1z=']a<c-g>u
 
 "
 " Disables automatic commenting on newline:
@@ -555,12 +585,19 @@ let g:goyo_width = 106
 " -----------------------------------------------
 " LaTeX
 
-"let g:tex_flavor='latex'
+let g:tex_flavor='latex'
 " let g:vimtex_view_method='okular'
-"let g:vimtex_view_method='zathura'
-"let g:vimtex_quickfix_mode=0
-"let conceallevel=1
-"let g:tex_conceal='abdmg'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+let conceallevel=1
+let g:tex_conceal='abdmg'
+
+" -----------------------------------------------
+" Snippets
+" Plug 'sirver/ultisnips'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " -----------------------------------------------
 " Miscellaneous bindings
@@ -568,8 +605,11 @@ let g:goyo_width = 106
 " command W w !sudo tee % > /dev/null
 " :W sudo saves files
 map <C-n> :NERDTreeToggle<CR>
-nnoremap zw :update<CR>
-nnoremap zq :q<CR>
+nnoremap <silent> zq :q<CR>
+nnoremap <silent> zw :update<CR>
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
 "nnoremap zq :update<BAR>q<CR>
 
 

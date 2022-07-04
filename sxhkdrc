@@ -6,8 +6,26 @@
 super + Return
 	st -g=100x40
 
+super + shift + o
+	pgrep okular && pkill okular || {test -f $(cat $DOT_DATA_HOME/plotdir)/Rplot.pdf && okular  $(cat $DOT_DATA_HOME/plotdir)/Rplot.pdf || notify-send "Rplot.pdf not found"}
+
+super + o
+	plotpick
+
+super + shift + s
+	pgrep spt && pkill spt || {st -g 270x50 -e zsh -c 'spt;'}
+
 super + shift + Return
 	tmux ls | grep scratch | grep attached && {tmux detach -s scratch} || {st -g=100x40 -e zsh -c 'tmux new-session -A -s scratch;'}
+
+super + shift + 8
+	tmux ls | grep "8\:\s" | grep attached && {tmux detach -s 8} || {st -g=100x40 -e zsh -c 'tmux new-session -A -s 8;'}
+
+super + shift + 9
+	tmux ls | grep "9\:\s" | grep attached && {tmux detach -s 9} || {st -g=100x40 -e zsh -c 'tmux new-session -A -s 9;'}
+
+super + shift + 0
+	tmux ls | grep "0\:\s" | grep attached && {tmux detach -s 0} || {st -g=100x40 -e zsh -c 'tmux new-session -A -s 0;'}
 
 # program launcher
 super + d
@@ -17,28 +35,18 @@ super + d
 super + Escape
 	notify-send --urgency=low "restarting sxhkd" & pkill -x sxhkd >/dev/null 2>&1 && sxhkd & >/dev/null 2>&1
 
-#
-#screenshot
-#
+
+super + Print
+	maimpick
 
 #super + e
 	#thunar
 
 Print
-	maim /home/dennisfj/pictures/screenshots/pic-full-$(date '+%Y-%m-%d_%H%M-%S').png & notify-send --urgency=low "📷 screenshot saved"
+	maim /home/dennisfj/pictures/screenshots/pic-full-$(date '+%Y-%m-%d_%H%M-%S').png & notify-send --urgency=low "$(cat $DOT_DATA_HOME/camera.emoji) screenshot saved"
 
 super + shift + q
 	sysact
 
 super + grave
 	dmenuunicode
-
-
-
-
-#{ MODKEY,			XK_F9,		spawn,		SHCMD("dmenumount") },
-#{ MODKEY,			XK_F10,		spawn,		SHCMD("dmenuumount") },
-	#{ MODKEY,			XK_Print,	spawn,		SHCMD("dmenurecord") },
-	#{ MODKEY|ShiftMask,		XK_Print,	spawn,		SHCMD("dmenurecord kill") },
-	#{ MODKEY,			XK_Delete,	spawn,		SHCMD("dmenurecord kill") },
-	#{ MODKEY,			XK_Scroll_Lock,	spawn,		SHCMD("killall screenkey || screenkey &") },

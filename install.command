@@ -4,7 +4,8 @@
 
 # dotfiles.github.io
 
-
+# matlab vim terminal auto complete
+# pip install pexpect
 
 
 OS="$1"
@@ -120,3 +121,7 @@ function initalize_github () {
 	git config --global user.email "dennis.j.farmer2@outlook.com"
 	git config --global user.name "dennisfarmer"
 }
+
+# yay -S vscodium
+# yay -S spotify-tui
+# (spt)

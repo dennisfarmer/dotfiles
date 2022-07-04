@@ -25,6 +25,8 @@ fi
 alias \
     grep="grep --color=auto" \
     mkdir='mkdir -pv' \
+    fix='xset r rate 150 40' \
+    du='du -h' \
     wget='wget --no-hsts' \
 	info='info --vi-keys' \
 	diff="diff --color=auto --side-by-side" \
@@ -37,12 +39,15 @@ alias \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
 	ytv="yt -f bestvideo+bestaudio/best" \
-	ffmpeg="ffmpeg -hide_banner"
+	ffmpeg="ffmpeg -hide_banner" \
+    csv="moderncsv"
+
 
 alias wcc="nmcli device wifi rescan && nmcli device wifi connect wccnet"
 #alias R="R --no-save"
 #alias rscript="R CMD BATCH"  # different from Rscript
 alias python="python3"
+alias ml="matlab -batch"
 alias ntp="sudo ntpdate -b -u 0.gentoo.pool.ntp.org"
 alias cdkernel="cd /usr/src/linux"
 # Mount MTP device:
@@ -115,6 +120,7 @@ alias \
 	#weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 alias \
     tmux="tmux -f $TMUXRC" \
+    ta0="tmux attach -t term0" \
     tks="tmux kill-server" \
     hotspot="nmcli device wifi rescan && nmcli device wifi connect dissociation-rectangle password securepassword" \
     panera="nmcli device wifi rescan && nmcli device wifi connect PANERA" \

@@ -21,6 +21,7 @@ export PROFILE="$DOT_CONFIG_HOME/shell/profile"
 export XPROFILE="$DOT_CONFIG_HOME/x11/xprofile"
 export XRESOURCES="$DOT_CONFIG_HOME/x11/xresources"
 export DWMRC="$DOT/.local/src/dwm/config.h"
+export LD_PRELOAD="/usr/lib/libfreetype.so.6"
 
 #export USERDIR="/mnt/c/Users/denni"
 #export USERDIR="/Users/dennis"
