@@ -1,0 +1,19 @@
+! Swap caps lock and escape
+remove Lock = Caps_Lock
+!keysym Escape = Caps_Lock
+keycode 9 = Caps_Lock
+!keysym Caps_Lock = Escape
+keycode 66 = Escape
+add Lock = Caps_Lock
+
+! xev to view key events (keycode ... (keysym ... , XF86Forward))
+! xmodmap -pke | grep ...
+! X200 / X230: Add PgUp and PgDn next to arrow keys
+
+keysym XF86Back = Prior
+keysym XF86Forward = Next
+
+! Natural Scrolling
+!pointer = 1 2 3 5 4 6 7 8 9 10
+
+! Give functionality to X200 Tablet screen keys

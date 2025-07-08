@@ -1,7 +1,9 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export ZDOTDIR="$HOME/.config/zsh"
-export ZSHRC="$HOME/.config/zsh/zshrc"
+export ZSHRC="$HOME/.config/zsh/.zshrc"
+
+export PATH="$PATH:$HOME/Michigan/scripts"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 

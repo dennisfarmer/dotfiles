@@ -1,0 +1,142 @@
+#!/usr/bin/env sh
+
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# Sets yabai to be tiling
+yabai -m config layout bsp
+
+# New windows are to the right and bottom
+yabai -m config window_placement second_child
+
+# Set all padding and gaps to 15pt (default: 0)
+yabai -m config top_padding    5 #15
+yabai -m config bottom_padding 5 #5
+yabai -m config left_padding   15 #15 
+yabai -m config right_padding  15 #15
+yabai -m config window_gap     15 #15
+
+# Makes space for the ubersicht bar
+#yabai -m config external_bar all:36:0
+
+# modify window shadows (default: on, options: on, off, float)
+# example: show shadows only for floating windows
+yabai -m config window_shadow float
+
+# window opacity (default: off)
+# example: render all unfocused windows with 90% opacity
+# yabai -m config window_opacity on
+# yabai -m config active_window_opacity 1.0
+# yabai -m config normal_window_opacity 0.9
+
+# create spaces
+
+for idx in $(yabai -m query --spaces | jq '.[].index | select(. > 1)' | sort -nr); do
+   yabai -m space --destroy "$idx"
+done
+
+yabai -m space "1" --label "spotify"
+
+yabai -m space --create # 2
+yabai -m space "2" --label "two"
+
+yabai -m space --create # 3
+yabai -m space "3" --label "three"
+
+yabai -m space --create # 4
+yabai -m space "4" --label "firefox"
+
+yabai -m space --create # 5
+yabai -m space "5" --label "home"
+
+yabai -m space --focus home
+
+# window borders
+#yabai -m config window_border off
+# ^ results in error
+
+#yabai -m config window_border on
+#yabai -m config normal_window_border_color 444444
+#yabai -m config active_window_border_color 770000
+#yabai -m config window_border_width 5
+
+#yabai -m config focus_follows_mouse autofocus
+
+# ########### #
+#    Rules!   #
+# ########### #
+
+# Floating certain windows
+   yabai -m rule --add app=Spotify space=1
+   #yabai -m rule --add app="^Firefox$" space=^4
+   #yabai -m rule --add app="^Apple TV$" space=^3
+   #yabai -m rule --add app="^TV$" space=^3
+   #yabai -m rule --add app="^System Preferences$" manage=off
+   yabai -m rule --add app="^Finder$" manage=off
+   yabai -m rule --add app="^Installer$" manage=off
+   yabai -m rule --add app="^Activity Monitor$" manage=off
+   yabai -m rule --add app="^Messages$" manage=off
+   yabai -m rule --add app="^Mail$" manage=off
+   yabai -m rule --add app="^Preview$" manage=off
+   yabai -m rule --add app="^Riot Client$" manage=off
+   yabai -m rule --add app="^League of Legends$" manage=off
+   yabai -m rule --add app="^Logitech G HUB$" manage=off
+   yabai -m rule --add app="^osu!$" manage=off
+   yabai -m rule --add app="^QuickTime Player$" manage=off
+# yabai -m rule --add app!="^(Google Chrome|Discord|iTerm2|Spotify|Visual Studio Code)$" manage=off
+
+# Starting certain windows fullscreen
+# todo: discord (maybe), all adobe apps
+
+#echo "yabai configuration loaded.."
+
+
+
+
+
+
+
+
+
+
+
+
+# global settings
+#yabai -m config                                 \
+    #external_bar                 off:40:0       \
+    #menubar_opacity              1.0            \
+    #mouse_follows_focus          off            \
+    #focus_follows_mouse          off            \
+    #display_arrangement_order    default        \
+    #window_origin_display        default        \
+    #window_placement             second_child   \
+    #window_zoom_persist          on             \
+    #window_shadow                on             \
+    #window_animation_duration    0.0            \
+    #window_animation_easing      ease_out_circ  \
+    #window_opacity_duration      0.0            \
+    #active_window_opacity        1.0            \
+    #normal_window_opacity        0.90           \
+    #window_opacity               off            \
+    #insert_feedback_color        0xffd75f5f     \
+    #split_ratio                  0.50           \
+    #split_type                   auto           \
+    #auto_balance                 off            \
+    #top_padding                  12             \
+    #bottom_padding               12             \
+    #left_padding                 12             \
+    #right_padding                12             \
+    #window_gap                   06             \
+    #layout                       bsp            \
+    #mouse_modifier               fn             \
+    #mouse_action1                move           \
+    #mouse_action2                resize         \
+    #mouse_drop_action            swap
+
