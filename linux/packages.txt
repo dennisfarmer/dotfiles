@@ -1,0 +1,1 @@
+pacman -Q for all packages, pacman -Qm for AUR packages
