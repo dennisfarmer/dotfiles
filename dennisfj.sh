@@ -40,3 +40,5 @@ install_package() {
             ;;
     esac
 }
+
+install_package nvim
