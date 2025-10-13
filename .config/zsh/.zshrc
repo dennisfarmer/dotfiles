@@ -1,11 +1,11 @@
-
-
 PATH="$PATH:/usr/local/mysql/bin"
 alias coldbrew='arch --x86_64 /usr/local/Homebrew/bin/brew'
 
 PATH="/opt/homebrew/bin:$PATH"
 export VIMRC="$HOME/.config/nvim/init.vim"
 export ZSHRC="$HOME/.config/zsh/.zshrc"
+unsetopt autocd
+# setopt noautocd
 
 
 HISTSIZE=10000000
@@ -117,25 +117,18 @@ fi
 
 
 export XDG_CONFIG_HOME="/Users/dennisfj/.config"
-alias ls="ls -G"
+alias ls="ls -aG"
+
+# python alias based on current environment
+#pya() {
+    #alias python="$(which python3)"
+    #alias pip="$(which pip3)"
+#}
+#autoload -Uz pya
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# note: might be acting weird with vscode (fix later)
+# todo: set up sensible .vscode templates
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -150,6 +143,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
 
 PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
