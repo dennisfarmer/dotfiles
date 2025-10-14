@@ -6,5 +6,6 @@
     "jobs_tab_visibility": "shown",
     "rmd_viewer_type": "pane",
     "source_with_echo": true,
-    "editor_scroll_multiplier": 200
+    "editor_scroll_multiplier": 200,
+    "real_time_spellchecking": false
 }

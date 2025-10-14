@@ -3,6 +3,12 @@
 Makefile
 
 ^/README.*
+writeup.md
+programs.csv
+postinstall.md
 
 \.windows
+linux
 .DS_Store
+\.config/yabai
+\.config/skhd

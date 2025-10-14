@@ -3,6 +3,7 @@ alias coldbrew='arch --x86_64 /usr/local/Homebrew/bin/brew'
 
 PATH="/opt/homebrew/bin:$PATH"
 export VIMRC="$HOME/.config/nvim/init.vim"
+export TMUXRC="$HOME/.config/tmux/tmux.conf"
 export ZSHRC="$HOME/.config/zsh/.zshrc"
 unsetopt autocd
 # setopt noautocd
@@ -131,20 +132,20 @@ alias ls="ls -aG"
 # todo: set up sensible .vscode templates
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/dennisfj/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/dennisfj/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/dennisfj/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/opt/miniconda3/bin:$PATH"
+        export PATH="/Users/dennisfj/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
+#source "${HOME}/miniforge3/etc/profile.d/conda.sh"
 PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 alias vim="nvim"
