@@ -69,12 +69,27 @@ setup_ds() {
         bash Miniforge3.sh -b -f -p "${HOME}/miniforge3"
     fi
     install_package graphviz sqlite mysql eigen pyenv
+	# source zshrc, install latex rendering for
+	# render-markdown.nvim
+	# conda install -c conda-forge pylatexenc
+	# npm install -g tree-sitter-cli
+	# :TSInstall latex
 }
 
 setup_synth() {
     install_package faust chuck flac
     # brew link --overwrite chuck --dry-run
     # brew link --overwrite chuck
+}
+
+
+script_stuff() {
+		echo todo
+		#tee file{1..100}.txt <template.txt >/dev/null
+		for i in $(seq -w 1 14); do
+			tee ${i}.md <template.md >/dev/null
+		done
+
 }
 
 

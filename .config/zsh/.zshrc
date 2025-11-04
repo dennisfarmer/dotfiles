@@ -2,12 +2,24 @@ PATH="$PATH:/usr/local/mysql/bin"
 alias coldbrew='arch --x86_64 /usr/local/Homebrew/bin/brew'
 
 PATH="/opt/homebrew/bin:$PATH"
-export VIMRC="$HOME/.config/nvim/init.vim"
+export VIMRC="$HOME/.config/nvim/init.lua"
 export TMUXRC="$HOME/.config/tmux/tmux.conf"
 export ZSHRC="$HOME/.config/zsh/.zshrc"
+export NOTES="$HOME/notes"
 unsetopt autocd
 # setopt noautocd
 
+
+
+# conda create -n .env python=3.13 --yes && conda activate .env && pip install -r requirements.txt
+# pyenv versions --bare | grep -v '^system$' | xargs -n1 -I{} pyenv uninstall -f "{}"
+#(base) dennisfj-michigan-4 :: ~ » docker run --name pvzge -d -p 8080:80 gaozih/pvzge:latest
+#docker: Cannot connect to the Docker daemon at unix:///Users/dennisfj/.docker/run/docker.sock. Is the docker daemon running?
+
+# docker run --name pvzge -d -p 8080:80 gaozih/pvzge:latest
+alias dpvz2="docker run --name pvzge -d -p 80:80 gaozih/pvzge:latest"
+alias pvz2="/Applications/Firefox.app/Contents/MacOS/firefox --kiosk --new-window 'http://localhost:80'"
+#./firefox --kiosk
 
 HISTSIZE=10000000
 SAVEHIST=10000000
