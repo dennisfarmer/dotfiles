@@ -56,7 +56,7 @@ if [ ! -d "$HOME/dotfiles" ]; then
     git clone --depth 1 "https://github.com/dennisfarmer/dotfiles.git" "$HOME/dotfiles"
 fi
 cd "$HOME/dotfiles"
-stow --adopt .
+stow --no-folding --adopt .
 git restore .
 mkdir -p "$HOME/notes"
 
