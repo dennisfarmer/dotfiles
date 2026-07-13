@@ -1,1 +1,6 @@
 pacman -Q for all packages, pacman -Qm for AUR packages
+
+pacman -Qqen for native repo packages
+pacman -Qqem for AUR
+pacman -Qq for all
+
