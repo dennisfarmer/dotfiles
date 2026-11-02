@@ -14,6 +14,23 @@
                             }
                         ]
                     },
+					{
+						"description": "f4 without fn to s+ctrl+option+command (opens Safari via shortcut)",
+						"manipulators": [
+								{
+									"from": { "key_code": "f4" },
+									"to": [ { 
+											"key_code": "s",
+											"modifiers": [
+													"left_control",
+													"left_option",
+													"left_command"
+											]
+									}], 
+									"type": "basic"
+								}
+						]
+					},
                     {
                         "description": "CapsLock as ESC, without delay",
                         "manipulators": [
